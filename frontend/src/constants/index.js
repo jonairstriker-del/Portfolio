@@ -1,7 +1,7 @@
 // ─── Personal Info ────────────────────────────────────────────
 export const PERSONAL_INFO = {
   name:        "Jonair A. Patani",
-  title:       "Aspiring UI/UX Designer, Frontend Developer & Video Editor",
+  title:       "Aspiring UI/UX Designer, Frontend Developer, Video Editor & Streamer",
   email:       "jonairstriker@gmail.com",
   phone:       "09510062828",
   location:    "0860 J. Gabriel St, Baclaran, Parañaque City",
@@ -26,9 +26,9 @@ export const NAV_LINKS = [
 export const HERO_CONTENT = {
   greeting:    "Hello, I'm",
   name:        "Jonair Patani",
-  title:       "Aspiring UI/UX Designer, Frontend Developer & Video Editor",
+  title:       "Aspiring UI/UX Designer, Frontend Developer, Video Editor & Streamer",
   description:
-    "A dedicated Computer Science student committed to overcoming challenges and achieving goals. Approaching every task with discipline and a strong work ethic — eager to expand skills and grow professionally.",
+    "A dedicated Computer Science student passionate about design, content creation, and live streaming. Committed to overcoming challenges and growing professionally through continuous learning and creative work.",
 };
 
 // ─── Objective / About ────────────────────────────────────────
@@ -88,16 +88,17 @@ export const SOFT_SKILLS = [
   "Editing",
   "Adaptability",
   "Good Listener",
+  "Live Streaming",
 ];
 
 // ─── Tools ────────────────────────────────────────────────────
 export const TOOLS = [
-  { name: "Figma",    icon: "Pen",   category: "Design"  },
-  { name: "Canva",    icon: "Image", category: "Design"  },
-  { name: "CapCut",   icon: "Video", category: "Editing" },
-  { name: "ChatGPT",  icon: "Bot",   category: "AI"      },
-  { name: "VS Code",  icon: "Code",  category: "Dev"     },
-  { name: "React",    icon: "Film",  category: "Dev"     },
+  { name: "Figma",    icon: "Pen",   category: "Design"     },
+  { name: "Canva",    icon: "Image", category: "Design"     },
+  { name: "CapCut",   icon: "Video", category: "Editing"    },
+  { name: "ChatGPT",  icon: "Bot",   category: "AI"         },
+  { name: "VS Code",  icon: "Code",  category: "Dev"        },
+  { name: "OBS",      icon: "Radio", category: "Streaming"  },
 ];
 
 // ─── Experience ───────────────────────────────────────────────

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Download, Video, Bot, Image,
-  Film, Code, Pen, Sparkles,
+  Film, Code, Pen, Sparkles, Radio,
 } from "lucide-react";
 import SectionHeader from "../components/common/SectionHeader";
 import AnimatedSection from "../components/common/AnimatedSection";
@@ -18,7 +18,7 @@ const AVATARS = [
   "/images/avatar-3.jpg",
 ];
 
-const ICON_MAP = { Pen, Video, Bot, Image, Film, Code };
+const ICON_MAP = { Pen, Video, Bot, Image, Film, Code, Radio };
 
 const stagger = {
   hidden: {},
@@ -139,6 +139,14 @@ function AvatarSlideshow() {
       >
         ✨ Figma
       </motion.div>
+
+      <motion.div
+        animate={{ x: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
+        className="absolute top-1/3 -right-14 glass px-3 py-1.5 rounded-full text-xs text-white whitespace-nowrap flex items-center gap-1.5"
+      >
+        🔴 Streaming
+      </motion.div>
     </div>
   );
 }
@@ -189,7 +197,7 @@ export default function Home() {
               className="text-lg sm:text-xl font-semibold leading-snug"
               style={{ color: "#c084fc" }}
             >
-              Aspiring UI/UX Designer, Frontend Developer &amp; Video Editor
+              Aspiring UI/UX Designer, Frontend Developer, Video Editor &amp; Streamer
             </motion.p>
 
             {/* Description */}

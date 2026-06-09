@@ -3,7 +3,7 @@ import {
   Palette, Video, Target, Lightbulb,
   Users, Zap, GraduationCap, Quote,
   MapPin, Mail, Phone, User,
-  Search, Layout, Brush, RefreshCw,
+  Search, Layout, Brush, RefreshCw, Radio,
 } from "lucide-react";
 import SectionHeader from "../components/common/SectionHeader";
 import AnimatedSection from "../components/common/AnimatedSection";
@@ -14,10 +14,10 @@ import {
 } from "../constants";
 
 const TRAITS = [
-  { Icon: Palette,   label: "UI/UX Design",    desc: "Creating interfaces that delight and engage users"       },
-  { Icon: Video,     label: "Video Editing",    desc: "Crafting visual stories that captivate audiences"        },
-  { Icon: Target,    label: "Goal-Oriented",    desc: "Committed to overcoming challenges and achieving goals"  },
-  { Icon: Lightbulb, label: "Creative Thinker", desc: "Bringing unique perspectives to every design challenge" },
+  { Icon: Palette,   label: "UI/UX Design",    desc: "Creating interfaces that delight and engage users"              },
+  { Icon: Video,     label: "Video Editing",    desc: "Crafting visual stories that captivate audiences"               },
+  { Icon: Radio,     label: "Streaming",        desc: "Live streaming content and connecting with communities online"  },
+  { Icon: Target,    label: "Goal-Oriented",    desc: "Committed to overcoming challenges and achieving goals"         },
 ];
 
 const PROCESS = [
