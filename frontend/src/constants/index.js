@@ -140,6 +140,46 @@ export const REFERENCES = [
   },
 ];
 
+// ─── Platforms / What I Do ────────────────────────────────────
+export const PLATFORMS = [
+  {
+    id:          "youtube",
+    name:        "YouTube — STRIKER",
+    handle:      "@STRIKER20030",
+    url:         "https://youtube.com/@STRIKER20030",
+    image:       "/images/youtube-channel.jpg",
+    joined:      "January 1, 2021",
+    stats: [
+      { label: "Subscribers", value: "453" },
+      { label: "Videos",      value: "49"  },
+      { label: "Years Active", value: "4+" },
+    ],
+    description:
+      "I created this YouTube channel to share my gaming edits and improve my video editing skills. Specializing in anime AMVs, I've produced 49 videos covering titles like Hunter X Hunter, Hajime no Ippo, and more — growing to 453 subscribers through consistent creative output.",
+    tags:  ["Anime AMV", "Gaming Edits", "Video Editing"],
+    color: "#FF0000",
+    icon:  "yt",
+  },
+  {
+    id:          "tiktok",
+    name:        "TikTok LIVE",
+    handle:      "@jonairpatani",
+    url:         "https://tiktok.com/@jonairpatani",
+    image:       "/images/tiktok-live.jpg",
+    joined:      null,
+    stats: [
+      { label: "Platform", value: "TikTok" },
+      { label: "Format",   value: "LIVE"   },
+      { label: "Goal",     value: "Income" },
+    ],
+    description:
+      "I joined TikTok to enhance my editing skills, begin livestreaming, and create an additional source of income. Using TikTok LIVE Studio I stream interactive sessions — leveraging gifts, Super Fan subscriptions, and live viewer engagement to build a growing online presence.",
+    tags:  ["Live Streaming", "Content Creation", "TikTok LIVE"],
+    color: "#69C9D0",
+    icon:  "tt",
+  },
+];
+
 // ─── Stats ────────────────────────────────────────────────────
 export const STATS = [
   { label: "Projects",     value: "3+"    },

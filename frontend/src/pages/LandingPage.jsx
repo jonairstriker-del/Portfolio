@@ -7,7 +7,7 @@ import {
   GraduationCap, MapPin, Mail, Phone, User,
   Search, Layout, Brush, RefreshCw,
   BookOpen, Award, Layers, ExternalLink, GitBranch,
-  CheckCircle, Calendar,
+  CheckCircle, Calendar, Play,
 } from "lucide-react";
 
 import SectionHeader    from "../components/common/SectionHeader";
@@ -19,7 +19,7 @@ import { getToolIcon }  from "../components/common/ToolIcon";
 import {
   FEATURED_PROJECTS, ALL_PROJECTS, SKILLS, TOOLS, STATS,
   PERSONAL_INFO, ABOUT_ME, EDUCATION, SOFT_SKILLS,
-  EXPERIENCES, CERTIFICATES, SOCIAL_LINKS,
+  EXPERIENCES, CERTIFICATES, SOCIAL_LINKS, PLATFORMS,
 } from "../constants";
 
 // ── Avatar slideshow ────────────────────────────────────────────
@@ -376,9 +376,110 @@ export default function LandingPage() {
           </div>
         </div>
 
+        {/* ── What I Do — Platforms ── */}
+        <div className="mb-16">
+          <SectionHeader eyebrow="What I Do" title="My Platforms & Channels"
+            subtitle="Places where I create content, stream live, and share my creative work with the world." />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {PLATFORMS.map((platform, i) => (
+              <AnimatedSection key={platform.id} delay={i * 0.12}>
+                <div
+                  className="glass-card overflow-hidden group"
+                  style={{ transition: "border-color 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = `${platform.color}55`;
+                    e.currentTarget.style.boxShadow   = `0 0 28px ${platform.color}22`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                    e.currentTarget.style.boxShadow   = "none";
+                  }}
+                >
+                  {/* Screenshot / banner area */}
+                  <div className="relative h-52 overflow-hidden"
+                    style={{ background: "linear-gradient(135deg,#1a1a1a,#0f0f0f)" }}>
+                    {/* Try to load screenshot; graceful fallback */}
+                    <img
+                      src={platform.image}
+                      alt={`${platform.name} screenshot`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
+                    />
+                    {/* Gradient overlay always present */}
+                    <div className="absolute inset-0"
+                      style={{ background: `linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.2) 50%, transparent 100%)` }} />
+
+                    {/* Platform badge top-left */}
+                    <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                      style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: `1px solid ${platform.color}44` }}>
+                      {platform.icon === "yt"
+                        ? <Play size={12} style={{ color: platform.color, fill: platform.color }} />
+                        : <Radio size={12} style={{ color: platform.color }} />}
+                      <span className="text-xs font-bold text-white">{platform.name}</span>
+                    </div>
+
+                    {/* Handle bottom-left */}
+                    <div className="absolute bottom-3 left-4">
+                      <p className="text-sm font-semibold text-white">{platform.handle}</p>
+                      {platform.joined && (
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(217,217,217,0.5)" }}>
+                          Joined {platform.joined}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* External link top-right */}
+                    <a href={platform.url} target="_blank" rel="noopener noreferrer"
+                      className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all"
+                      style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(8px)" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = platform.color)}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.6)")}
+                      aria-label={`Visit ${platform.name}`}>
+                      <ExternalLink size={13} className="text-white" />
+                    </a>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    {/* Stats row */}
+                    <div className="flex flex-wrap gap-3">
+                      {platform.stats.map((s) => (
+                        <div key={s.label} className="flex flex-col items-center px-4 py-2.5 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                          <span className="text-lg font-black text-gradient">{s.value}</span>
+                          <span className="text-[10px] text-muted mt-0.5">{s.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(217,217,217,0.75)" }}>
+                      {platform.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {platform.tags.map((tag) => (
+                        <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded-md"
+                          style={{
+                            background: `${platform.color}14`,
+                            color:      platform.color,
+                            border:     `1px solid ${platform.color}30`,
+                          }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+
         {/* Education */}
-        <SectionHeader eyebrow="Background" title="Educational Background" centered={false} />
-        <div className="space-y-4 mb-16">
+        <SectionHeader eyebrow="Background" title="Educational Background" centered={false} />        <div className="space-y-4 mb-16">
           {EDUCATION.map((edu, i) => (
             <AnimatedSection key={i} delay={i * 0.08}>
               <div className="glass-card p-6 flex flex-wrap items-start justify-between gap-4"
