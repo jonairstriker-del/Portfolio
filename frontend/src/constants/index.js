@@ -33,7 +33,7 @@ export const HERO_CONTENT = {
 
 // ─── Objective / About ────────────────────────────────────────
 export const ABOUT_ME =
-  "I am a dedicated and determined college student who is committed to overcoming challenges and achieving my goals. I approach every task with discipline and a strong work ethic, eager to expand my skills and knowledge. I am open to gaining experience in various fields, regardless of my current expertise, and I am focused on applying what I've learned so far to further develop my abilities and grow professionally.";
+  "I am a dedicated and determined college student committed to overcoming challenges and achieving my goals. I have hands-on experience working in production environments twice — gaining real-world exposure to professional workflows, team collaboration, and delivering output under pressure. I approach every task with discipline and a strong work ethic, eager to expand my skills across design, editing, development, and live streaming.";
 
 // ─── Education ────────────────────────────────────────────────
 export const EDUCATION = [

@@ -9,6 +9,7 @@ import SectionHeader from "../components/common/SectionHeader";
 import AnimatedSection from "../components/common/AnimatedSection";
 import ProjectCard from "../components/project/ProjectCard";
 import SkillCard from "../components/common/SkillCard";
+import { getToolIcon } from "../components/common/ToolIcon";
 import { FEATURED_PROJECTS, SKILLS, TOOLS, STATS } from "../constants";
 
 // ─── Avatar images (place these files in public/images/) ──────
@@ -267,7 +268,7 @@ export default function Home() {
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {TOOLS.map((tool, i) => {
-            const Icon = ICON_MAP[tool.icon];
+            const Icon = getToolIcon(tool.name);
             return (
               <AnimatedSection key={tool.name} delay={i * 0.05}>
                 <div
@@ -282,11 +283,8 @@ export default function Home() {
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                    style={{ background: "rgba(124,58,237,0.12)" }}
-                  >
-                    {Icon && <Icon size={20} style={{ color: "#c084fc" }} />}
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                    <Icon size={44} />
                   </div>
                   <div className="text-center">
                     <p className="text-white text-xs font-semibold leading-tight">{tool.name}</p>

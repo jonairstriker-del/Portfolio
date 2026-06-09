@@ -1,140 +1,245 @@
 %PDF-1.4
-1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
-endobj
-
-2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
-endobj
-
-3 0 obj
-<<
-  /Type /Page
-  /Parent 2 0 R
-  /MediaBox [0 0 612 792]
-  /Contents 4 0 R
-  /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >>
->>
-endobj
-
+1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
+2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
+3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 612 792]/Contents 4 0 R/Resources<</Font<</F1 5 0 R/F2 6 0 R/F3 7 0 R>>>>>>endobj
 4 0 obj
-<< /Length 2200 >>
+<</Length 3800>>
 stream
-BT
-  /F1 28 Tf
-  50 740 Td
-  (Jonair Patani) Tj
-  /F2 13 Tf
-  0 -28 Td
-  (UI/UX Designer  &  Creative Editor) Tj
-  /F2 10 Tf
-  0 -18 Td
-  (jonairpatani@email.com   |   Philippines) Tj
-  0 -12 Td
-  (github.com/jonairpatani   |   linkedin.com/in/jonairpatani) Tj
+% Header bar
+0.486 0.227 0.929 rg
+0 752 612 40 re f
+1 1 1 rg
 
-  /F1 13 Tf
-  0 -34 Td
-  (ABOUT ME) Tj
-  /F2 10 Tf
-  0 -18 Td
-  (Aspiring UI/UX Designer and Creative Editor with a passion for crafting visually) Tj
-  0 -15 Td
-  (appealing and user-friendly digital experiences. Skilled in Figma, CapCut, Adobe) Tj
-  0 -15 Td
-  (Premiere Pro, and front-end development with React and Tailwind CSS.) Tj
+% Name
+/F3 26 Tf
+50 761 Td
+(JONAIR A. PATANI) Tj
 
-  /F1 13 Tf
-  0 -34 Td
-  (SKILLS) Tj
-  /F2 10 Tf
-  0 -18 Td
-  (Design:   UI/UX Design  90%   |   Figma  90%   |   Prototyping  82%) Tj
-  0 -15 Td
-  (Editing:  Video Editing  80%   |   Adobe Premiere Pro  75%   |   CapCut  88%) Tj
-  0 -15 Td
-  (Dev:      React  65%   |   Tailwind CSS  72%) Tj
+% Title under name
+/F2 10 Tf
+0 -18 Td
+(UI/UX Designer  |  Frontend Developer  |  Video Editor  |  Streamer) Tj
 
-  /F1 13 Tf
-  0 -34 Td
-  (TOOLS) Tj
-  /F2 10 Tf
-  0 -18 Td
-  (Figma  |  CapCut  |  Adobe Premiere Pro  |  Picsart  |  ChatGPT  |  VS Code) Tj
+% Reset color to dark
+0.06 0.06 0.06 rg
 
-  /F1 13 Tf
-  0 -34 Td
-  (EXPERIENCE) Tj
-  /F2 11 Tf
-  0 -20 Td
-  (UI/UX Designer & Creative Editor  -  Freelance) Tj
-  /F2 10 Tf
-  0 -15 Td
-  (Jan 2023 - Present) Tj
-  0 -15 Td
-  (Designing user interfaces and editing creative video content for clients.) Tj
-  0 -13 Td
-  (Delivered 10+ design projects and 20+ video productions.) Tj
+% Contact row
+/F2 8.5 Tf
+50 730 Td
+(jonairstriker@gmail.com   |   09510062828   |   0860 J. Gabriel St, Baclaran, Paranaque City   |   DOB: July 26, 2003) Tj
 
-  /F2 11 Tf
-  0 -22 Td
-  (Design Lead  -  Student Organization) Tj
-  /F2 10 Tf
-  0 -15 Td
-  (Jun 2022 - Jun 2023) Tj
-  0 -15 Td
-  (Led the visual identity team. Created event materials, social graphics,) Tj
-  0 -13 Td
-  (and branded content for university organization.) Tj
+% Divider line
+0.486 0.227 0.929 rg
+50 722 512 1 re f
+0.06 0.06 0.06 rg
 
-  /F1 13 Tf
-  0 -34 Td
-  (EDUCATION) Tj
-  /F2 11 Tf
-  0 -20 Td
-  (Bachelor of Science - Information Technology) Tj
-  /F2 10 Tf
-  0 -15 Td
-  (University / College  |  2021 - Present) Tj
+% OBJECTIVE
+/F3 11 Tf
+50 710 Td
+(OBJECTIVE) Tj
+0.486 0.227 0.929 rg
+50 706 512 1 re f
+0.06 0.06 0.06 rg
 
-  /F1 13 Tf
-  0 -34 Td
-  (CERTIFICATES) Tj
-  /F2 10 Tf
-  0 -18 Td
-  (UI/UX Design Fundamentals  -  Coursera  (2023)) Tj
-  0 -15 Td
-  (Figma: Beginners to Advanced  -  Udemy  (2023)) Tj
-  0 -15 Td
-  (Video Editing Masterclass  -  YouTube  (2023)) Tj
-  0 -15 Td
-  (Responsive Web Design  -  freeCodeCamp  (2023)) Tj
-  0 -15 Td
-  (Introduction to React  -  Scrimba  (2023)) Tj
-ET
+/F2 9.5 Tf
+50 694 Td
+(I am a dedicated and determined college student committed to overcoming challenges and achieving my goals.) Tj
+0 -14 Td
+(I have hands-on experience working in production environments twice, gaining real-world exposure to professional) Tj
+0 -14 Td
+(workflows, team collaboration, and delivering output under pressure. I approach every task with discipline and) Tj
+0 -14 Td
+(a strong work ethic, eager to expand my skills across design, editing, development, and live streaming.) Tj
+
+% EDUCATIONAL BACKGROUND
+/F3 11 Tf
+50 644 Td
+(EDUCATIONAL BACKGROUND) Tj
+0.486 0.227 0.929 rg
+50 640 512 1 re f
+0.06 0.06 0.06 rg
+
+% Entry 1
+/F3 9.5 Tf
+50 628 Td
+(Bachelor of Science in Computer Science) Tj
+/F2 9.5 Tf
+0 -13 Td
+(Arellano University - Jose Abad Santos Campus   |   3058 Taft Avenue, Pasay City) Tj
+0.486 0.227 0.929 rg
+/F2 9 Tf
+430 628 Td
+(2023 - Present) Tj
+0.06 0.06 0.06 rg
+
+% Entry 2
+/F3 9.5 Tf
+50 600 Td
+(Information and Communication Technology) Tj
+/F2 9.5 Tf
+0 -13 Td
+(Arellano University - Jose Abad Santos Campus   |   3058 Taft Avenue, Pasay City) Tj
+0.486 0.227 0.929 rg
+/F2 9 Tf
+430 600 Td
+(2019 - 2023) Tj
+0.06 0.06 0.06 rg
+
+% Entry 3
+/F3 9.5 Tf
+50 572 Td
+(Junior High School) Tj
+/F2 9.5 Tf
+0 -13 Td
+(Baclaran Paranaque National High School   |   1702 Dimasalang Ext. Baclaran, Paranaque City) Tj
+0.486 0.227 0.929 rg
+/F2 9 Tf
+430 572 Td
+(2017 - 2020) Tj
+0.06 0.06 0.06 rg
+
+% Entry 4
+/F3 9.5 Tf
+50 544 Td
+(Elementary Education) Tj
+/F2 9.5 Tf
+0 -13 Td
+(Baclaran Elementary School Unit 2   |   Santiago St. Paranaque City) Tj
+0.486 0.227 0.929 rg
+/F2 9 Tf
+430 544 Td
+(2010 - 2016) Tj
+0.06 0.06 0.06 rg
+
+% SKILLS
+/F3 11 Tf
+50 516 Td
+(SKILLS) Tj
+0.486 0.227 0.929 rg
+50 512 512 1 re f
+0.06 0.06 0.06 rg
+
+/F3 9.5 Tf
+50 500 Td
+(Technical Skills:) Tj
+/F2 9.5 Tf
+0 -13 Td
+(UI/UX Design  75%   |   Figma  70%   |   Canva  85%   |   CapCut  90%   |   Video Editing  80%   |   React  60%) Tj
+
+/F3 9.5 Tf
+50 472 Td
+(Other Skills:) Tj
+/F2 9.5 Tf
+0 -13 Td
+(Time Management   |   Patience   |   Editing   |   Adaptability   |   Good Listener   |   Live Streaming) Tj
+
+% TOOLS
+/F3 11 Tf
+50 444 Td
+(TOOLS & SOFTWARE) Tj
+0.486 0.227 0.929 rg
+50 440 512 1 re f
+0.06 0.06 0.06 rg
+
+/F2 9.5 Tf
+50 428 Td
+(Figma   |   Canva   |   CapCut   |   ChatGPT   |   VS Code   |   OBS Studio   |   React) Tj
+
+% EXPERIENCE
+/F3 11 Tf
+50 410 Td
+(EXPERIENCE) Tj
+0.486 0.227 0.929 rg
+50 406 512 1 re f
+0.06 0.06 0.06 rg
+
+/F3 9.5 Tf
+50 394 Td
+(Computer Science Student) Tj
+/F2 9 Tf
+0.486 0.227 0.929 rg
+0 -1 Td
+(Arellano University - Jose Abad Santos Campus   |   2023 - Present) Tj
+0.06 0.06 0.06 rg
+/F2 9.5 Tf
+0 -14 Td
+(Currently pursuing a BSCS degree while building skills in UI/UX Design, Frontend Development,) Tj
+0 -13 Td
+(Video Editing, and Live Streaming through coursework and self-directed learning.) Tj
+0 -13 Td
+(Worked in production environments twice, gaining real exposure to professional workflows.) Tj
+
+% CHARACTER REFERENCES
+/F3 11 Tf
+50 334 Td
+(CHARACTER REFERENCES) Tj
+0.486 0.227 0.929 rg
+50 330 512 1 re f
+0.06 0.06 0.06 rg
+
+% Ref 1
+/F3 9.5 Tf
+50 318 Td
+(Jhon Michael T. Gadia) Tj
+/F2 9 Tf
+0 -12 Td
+(3rd Year College Student  -  Philippine College of Criminology) Tj
+0 -12 Td
+(641 Sales Street, Sta. Cruz, Manila    0951-897-9304) Tj
+
+% Ref 2
+/F3 9.5 Tf
+230 318 Td
+(Ricojhan Dagohoy) Tj
+/F2 9 Tf
+0 -12 Td
+(Senior Crew Dining  -  Jollibee) Tj
+0 -12 Td
+(2064 Santiago St. Baclaran    0916-547-2253) Tj
+
+% Ref 3
+/F3 9.5 Tf
+410 318 Td
+(Sean Vrien Edis) Tj
+/F2 9 Tf
+0 -12 Td
+(Benefits Administrator  -  Conduent) Tj
+0 -12 Td
+(49 5 de Junio St, Naia, Pasay    0915-601-3585) Tj
+
+% Certification line
+0.06 0.06 0.06 rg
+/F2 8.5 Tf
+50 258 Td
+(I hereby certify that the facts contained in this resume are true and complete to the best of my knowledge.) Tj
+
+0.486 0.227 0.929 rg
+50 240 512 1 re f
+
+0.06 0.06 0.06 rg
+/F3 10 Tf
+50 225 Td
+(Jonair A. Patani) Tj
+/F2 8.5 Tf
+0 -13 Td
+(Applicant) Tj
+
 endstream
 endobj
-
-5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
-endobj
-
-6 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
-endobj
-
+5 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj
+6 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Oblique>>endobj
+7 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>endobj
 xref
-0 7
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000274 00000 n 
-0000002529 00000 n 
-0000002613 00000 n 
-
-trailer
-<< /Size 7 /Root 1 0 R >>
+0000000296 00000 n 
+0000004149 00000 n 
+0000004224 00000 n 
+0000004311 00000 n 
+trailer<</Size 8/Root 1 0 R>>
 startxref
-2695
+4395
 %%EOF
