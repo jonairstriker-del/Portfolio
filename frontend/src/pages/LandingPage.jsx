@@ -111,6 +111,79 @@ function ProjectCard({ project, index = 0 }) {
         style={{ background: "linear-gradient(135deg,#1a1a1a 0%,#0f0f0f 100%)" }}>
         {image_url
           ? <img src={image_url} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          : id === "2" /* Shopping UI — custom Java Swing thumbnail */
+          ? (
+            <div className="w-full h-full relative overflow-hidden select-none"
+              style={{ background: "linear-gradient(160deg,#001a33 0%,#002244 40%,#001a33 100%)" }}>
+
+              {/* Grid lines */}
+              <div className="absolute inset-0 opacity-[0.06]"
+                style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(0,116,150,1) 20px,rgba(0,116,150,1) 21px),repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(0,116,150,1) 20px,rgba(0,116,150,1) 21px)" }} />
+
+              {/* Sneaker silhouette — Jordan 1 side profile */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg viewBox="0 0 200 100" width="200" height="100" className="opacity-25 group-hover:opacity-40 transition-opacity duration-500">
+                  {/* Sole */}
+                  <ellipse cx="100" cy="85" rx="80" ry="10" fill="#007396" />
+                  {/* Shoe body */}
+                  <path d="M20 80 Q30 60 50 55 Q70 50 90 52 Q110 50 125 45 Q140 38 150 30 Q160 22 165 25 Q170 28 155 38 Q145 45 130 52 Q115 58 100 60 Q80 62 60 65 Q45 68 35 75 Z"
+                    fill="#CC0000" />
+                  {/* Nike swoosh */}
+                  <path d="M60 62 Q90 52 140 42 Q130 50 80 65 Z" fill="black" opacity="0.8" />
+                  {/* Tongue */}
+                  <path d="M125 45 Q130 35 135 30 Q138 27 140 30 Q137 38 130 48 Z" fill="#f0f0f0" />
+                  {/* Laces */}
+                  <path d="M110 55 Q115 50 120 52 M115 58 Q120 53 125 55" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+                  {/* High top */}
+                  <path d="M150 30 Q155 20 158 15 Q162 10 165 12 Q168 15 162 22 Q157 28 152 34 Z" fill="#CC0000" />
+                </svg>
+              </div>
+
+              {/* App UI mockup overlay */}
+              <div className="absolute bottom-0 left-0 right-0 h-20 px-3 pb-2 flex items-end gap-2"
+                style={{ background: "linear-gradient(to top,rgba(0,10,20,0.95),transparent)" }}>
+                {/* Form fields mock */}
+                <div className="flex flex-col gap-1 flex-1">
+                  {["ID", "Name", "Price"].map((f) => (
+                    <div key={f} className="flex items-center gap-1.5">
+                      <span className="text-[8px] font-bold" style={{ color:"rgba(0,180,216,0.7)", minWidth:28 }}>{f}:</span>
+                      <div className="flex-1 h-2.5 rounded-sm" style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)" }} />
+                    </div>
+                  ))}
+                </div>
+                {/* Table mock */}
+                <div className="flex-1">
+                  <div className="grid grid-cols-3 gap-px mb-px">
+                    {["ID","Name","Price"].map((h) => (
+                      <div key={h} className="text-[7px] font-bold px-1 py-0.5 text-center"
+                        style={{ background:"rgba(0,116,150,0.4)", color:"rgba(200,230,255,0.9)" }}>{h}</div>
+                    ))}
+                  </div>
+                  {[1,2,3].map((r) => (
+                    <div key={r} className="grid grid-cols-3 gap-px mb-px">
+                      {[0,1,2].map((c) => (
+                        <div key={c} className="h-2.5 rounded-sm"
+                          style={{ background:`rgba(255,255,255,${0.03 + c * 0.02})` }} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Java badge top-right */}
+              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+                style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(0,116,150,0.4)" }}>
+                <span className="text-[10px] font-black" style={{ color:"#007396" }}>☕</span>
+                <span className="text-[10px] font-bold text-white">Java Swing</span>
+              </div>
+
+              {/* NetBeans badge top-left */}
+              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full"
+                style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(0,116,150,0.3)" }}>
+                <span className="text-[10px] font-bold" style={{ color:"rgba(200,230,255,0.8)" }}>Apache NetBeans</span>
+              </div>
+            </div>
+          )
           : <div className="flex flex-col items-center gap-3 text-muted">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background:"rgba(124,58,237,0.15)" }}>
                 <Layers size={26} style={{ color:"#c084fc" }} />
