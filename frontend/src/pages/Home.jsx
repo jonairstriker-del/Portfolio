@@ -58,11 +58,11 @@ function AvatarSlideshow() {
 
       {/* Photo frame */}
       <div
-        className="absolute inset-4 rounded-full overflow-hidden"
+        className="absolute inset-4 rounded-full overflow-hidden flex items-center justify-center"
         style={{
           border: "2px solid rgba(124,58,237,0.5)",
           boxShadow: "0 0 40px rgba(124,58,237,0.3), inset 0 0 30px rgba(124,58,237,0.08)",
-          background: "linear-gradient(135deg,#5b21b6 0%,#0f0f0f 100%)",
+          background: "#000",
         }}
       >
         {allFailed ? (
@@ -84,8 +84,8 @@ function AvatarSlideshow() {
               key={current}
               src={AVATARS[current]}
               alt={`Jonair Patani — photo ${current + 1}`}
-              className="w-full h-full object-cover object-top"
-              initial={{ opacity: 0, scale: 1.05 }}
+              className="w-full h-full object-contain object-center"
+              initial={{ opacity: 0, scale: 1.03 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.45, ease: "easeInOut" }}
