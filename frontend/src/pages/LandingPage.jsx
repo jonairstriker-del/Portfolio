@@ -396,51 +396,52 @@ export default function LandingPage() {
                     e.currentTarget.style.boxShadow   = "none";
                   }}
                 >
-                  {/* ── Designed thumbnail banner (no image file needed) ── */}
+                  {/* ── Banner: real screenshot with designed fallback ── */}
                   {platform.icon === "yt" ? (
                     /* YouTube banner */
                     <div className="relative h-52 overflow-hidden select-none"
                       style={{ background: "linear-gradient(160deg,#1a0000 0%,#2d0000 40%,#1a0000 100%)" }}>
 
-                      {/* Noise texture grid */}
+                      {/* Real screenshot — shown if file exists */}
+                      <img
+                        src="/images/youtube-channel.jpg"
+                        alt="YouTube STRIKER channel"
+                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => { e.currentTarget.style.display = "none"; }}
+                      />
+
+                      {/* Noise texture grid (visible only when no image) */}
                       <div className="absolute inset-0 opacity-[0.04]"
                         style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(255,255,255,0.5) 30px,rgba(255,255,255,0.5) 31px),repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,255,255,0.5) 30px,rgba(255,255,255,0.5) 31px)" }} />
 
-                      {/* Big YT play icon watermark */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                      {/* Watermark (visible only when no image) */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
                         <svg viewBox="0 0 90 63" width="180" fill="#FF0000">
                           <path d="M88.1 9.9C87 5.9 83.9 2.8 79.9 1.7 72.9 0 45 0 45 0S17.1 0 10.1 1.7C6.1 2.8 3 5.9 1.9 9.9 0 16.9 0 31.5 0 31.5s0 14.6 1.9 21.6C3 57.1 6.1 60.2 10.1 61.3 17.1 63 45 63 45 63s27.9 0 34.9-1.7c4-1.1 7.1-4.2 8.2-8.2C90 46.1 90 31.5 90 31.5s0-14.6-1.9-21.6z"/>
                           <polygon points="36,45 59,31.5 36,18" fill="white"/>
                         </svg>
                       </div>
 
-                      {/* "STRIKER" title text in center */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                      {/* Fallback center content (hidden when image loads) */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 pointer-events-none">
                         <div className="flex items-center gap-3">
-                          {/* Channel avatar circle */}
                           <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                            style={{ background: "linear-gradient(135deg,#FF0000,#8B0000)", border: "2px solid rgba(255,0,0,0.4)", boxShadow: "0 0 20px rgba(255,0,0,0.4)" }}>
-                            S
-                          </div>
+                            style={{ background: "linear-gradient(135deg,#FF0000,#8B0000)", border: "2px solid rgba(255,0,0,0.4)", boxShadow: "0 0 20px rgba(255,0,0,0.4)" }}>S</div>
                           <div>
-                            <p className="text-white font-black text-2xl tracking-wider" style={{ textShadow: "0 0 20px rgba(255,0,0,0.6)" }}>
-                              STRIKER
-                            </p>
-                            <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>
-                              @STRIKER20030 · 453 subscribers
-                            </p>
+                            <p className="text-white font-black text-2xl tracking-wider" style={{ textShadow: "0 0 20px rgba(255,0,0,0.6)" }}>STRIKER</p>
+                            <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>@STRIKER20030 · 453 subscribers</p>
                           </div>
                         </div>
                       </div>
 
-                      {/* Bottom gradient */}
-                      <div className="absolute inset-x-0 bottom-0 h-16"
-                        style={{ background: "linear-gradient(to top,rgba(5,0,0,0.95),transparent)" }} />
+                      {/* Always-present bottom gradient */}
+                      <div className="absolute inset-x-0 bottom-0 h-20"
+                        style={{ background: "linear-gradient(to top,rgba(5,0,0,0.92),transparent)" }} />
 
-                      {/* Mini video thumbnails strip at bottom */}
-                      <div className="absolute bottom-2 left-0 right-0 flex gap-1.5 px-3 opacity-40">
+                      {/* Mini thumbnails strip */}
+                      <div className="absolute bottom-2 left-0 right-0 flex gap-1.5 px-3 opacity-30 pointer-events-none">
                         {["#1a1a2e","#16213e","#0f3460","#533483","#2c1810"].map((c, i) => (
-                          <div key={i} className="flex-1 h-10 rounded-sm" style={{ background: c }} />
+                          <div key={i} className="flex-1 h-8 rounded-sm" style={{ background: c }} />
                         ))}
                       </div>
 
@@ -464,9 +465,7 @@ export default function LandingPage() {
                       {/* Handle */}
                       <div className="absolute bottom-3 left-4">
                         <p className="text-sm font-semibold text-white">{platform.handle}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(217,217,217,0.5)" }}>
-                          Joined {platform.joined}
-                        </p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(217,217,217,0.5)" }}>Joined {platform.joined}</p>
                       </div>
                     </div>
                   ) : (
@@ -474,45 +473,39 @@ export default function LandingPage() {
                     <div className="relative h-52 overflow-hidden select-none"
                       style={{ background: "linear-gradient(160deg,#000000 0%,#0a0a0a 40%,#001a1a 100%)" }}>
 
-                      {/* Animated scan-line effect */}
-                      <div className="absolute inset-0 opacity-[0.03]"
+                      {/* Real screenshot */}
+                      <img
+                        src="/images/tiktok-profile.jpg"
+                        alt="TikTok STRIKER profile"
+                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => { e.currentTarget.style.display = "none"; }}
+                      />
+
+                      {/* Scan-line texture */}
+                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                         style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(105,201,208,1) 2px,rgba(105,201,208,1) 3px)" }} />
 
-                      {/* TikTok logo mark */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-8">
-                        <svg viewBox="0 0 50 56" width="120" fill="none">
-                          <path d="M49.9 13.4a14.9 14.9 0 01-9-3 14.9 14.9 0 01-5.5-11.4h-9.6v38.5a6.1 6.1 0 11-4.4-5.9V22a15.7 15.7 0 00-2 0 15.9 15.9 0 100 31.9 15.9 15.9 0 0015.9-15.9V19.5a24.4 24.4 0 0014.6 4.8V13.4z"
-                            fill="#69C9D0" opacity="0.15"/>
-                        </svg>
-                      </div>
-
-                      {/* Profile grid mock */}
-                      <div className="absolute inset-0 grid grid-cols-3 gap-0.5 p-0.5 opacity-20">
+                      {/* Fallback grid */}
+                      <div className="absolute inset-0 grid grid-cols-3 gap-0.5 p-0.5 opacity-20 pointer-events-none">
                         {["#1a1a2e","#16213e","#533483","#0f3460","#2c1810","#1a0a2e"].map((c, i) => (
                           <div key={i} className="rounded-sm" style={{ background: c }} />
                         ))}
                       </div>
 
-                      {/* Center profile */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2"
-                        style={{ background: "linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,26,26,0.7))" }}>
+                      {/* Fallback center */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 pointer-events-none"
+                        style={{ background: "linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,26,26,0.5))" }}>
                         <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                          style={{ background: "linear-gradient(135deg,#69C9D0,#EE1D52)", border: "2px solid rgba(105,201,208,0.5)", boxShadow: "0 0 20px rgba(105,201,208,0.3)" }}>
-                          S
-                        </div>
+                          style={{ background: "linear-gradient(135deg,#69C9D0,#EE1D52)", border: "2px solid rgba(105,201,208,0.5)", boxShadow: "0 0 20px rgba(105,201,208,0.3)" }}>S</div>
                         <div className="text-center">
-                          <p className="text-white font-black text-lg tracking-wide" style={{ textShadow: "0 0 16px rgba(105,201,208,0.5)" }}>
-                            ×STRIKER×
-                          </p>
-                          <p className="text-xs mt-0.5" style={{ color: "rgba(105,201,208,0.7)" }}>
-                            @striker.only
-                          </p>
+                          <p className="text-white font-black text-lg tracking-wide" style={{ textShadow: "0 0 16px rgba(105,201,208,0.5)" }}>×STRIKER×</p>
+                          <p className="text-xs mt-0.5" style={{ color: "rgba(105,201,208,0.7)" }}>@striker.only</p>
                         </div>
                       </div>
 
                       {/* Bottom gradient */}
-                      <div className="absolute inset-x-0 bottom-0 h-16"
-                        style={{ background: "linear-gradient(to top,rgba(0,5,5,0.95),transparent)" }} />
+                      <div className="absolute inset-x-0 bottom-0 h-20"
+                        style={{ background: "linear-gradient(to top,rgba(0,5,5,0.92),transparent)" }} />
 
                       {/* Platform badge */}
                       <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full"
