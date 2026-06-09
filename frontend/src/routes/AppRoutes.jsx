@@ -1,28 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Certificates from "../pages/Certificates";
-import Experience from "../pages/Experience";
-import Projects from "../pages/Projects";
-import Resume from "../pages/Resume";
+import MainLayout   from "../layouts/MainLayout";
+import LandingPage  from "../pages/LandingPage";
+import Resume       from "../pages/Resume";
 
-function AppRoutes() {
+export default function AppRoutes() {
   return (
     <Routes>
-      {/* Main site with navbar + footer */}
+      {/* One-page portfolio */}
       <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/certificates" element={<Certificates />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/" element={<LandingPage />} />
       </Route>
 
-      {/* Resume — standalone page, clean for printing */}
+      {/* Resume — standalone, clean for printing */}
       <Route path="/resume" element={<Resume />} />
     </Routes>
   );
 }
-
-export default AppRoutes;

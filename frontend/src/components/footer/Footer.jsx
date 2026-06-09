@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
 import { Heart, ExternalLink, Mail } from "lucide-react";
-import { NAV_LINKS, SOCIAL_LINKS, PERSONAL_INFO } from "../../constants";
+import { Link } from "react-router-dom";
+import { SOCIAL_LINKS, PERSONAL_INFO } from "../../constants";
+
+const SECTIONS = [
+  { label: "Home",         id: "home"         },
+  { label: "About",        id: "about"        },
+  { label: "Projects",     id: "projects"     },
+  { label: "Certificates", id: "certificates" },
+  { label: "Experience",   id: "experience"   },
+];
+
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 68, behavior: "smooth" });
+}
 
 function SocialBadge({ type, label }) {
   const map = { github: "GH", linkedin: "in", facebook: "FB" };
@@ -20,9 +34,9 @@ export default function Footer() {
       <div className="container-max section-padding py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* Brand column */}
+          {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
-            <Link to="/" className="flex items-center gap-2.5 w-fit">
+            <button onClick={() => scrollTo("home")} className="flex items-center gap-2.5">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-base"
                 style={{ background: "linear-gradient(135deg,#7c3aed,#5b21b6)" }}
@@ -32,7 +46,7 @@ export default function Footer() {
               <span className="font-bold text-lg text-white">
                 Jonair<span style={{ color: "#a855f7" }}>.</span>
               </span>
-            </Link>
+            </button>
             <p className="text-muted text-sm leading-relaxed max-w-xs">
               Aspiring UI/UX Designer, Frontend Developer &amp; Video Editor — building skills one project at a time.
             </p>
@@ -54,14 +68,14 @@ export default function Footer() {
               Navigation
             </h3>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
+              {SECTIONS.map(({ label, id }) => (
+                <li key={id}>
+                  <button
+                    onClick={() => scrollTo(id)}
                     className="text-muted hover:text-white text-sm transition-colors duration-200"
                   >
-                    {link.label}
-                  </Link>
+                    {label}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -81,13 +95,17 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-10 h-10 glass rounded-xl flex items-center justify-center text-muted hover:text-white transition-all duration-200"
-                  style={{ transition: "border-color 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(124,58,237,0.5)")}
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
                 >
                   <SocialBadge type={social.icon} label={social.label} />
                 </a>
               ))}
+            </div>
+            <div className="mt-5">
+              <Link to="/resume" className="btn-outline text-sm py-2 px-4 inline-flex">
+                View Resume
+              </Link>
             </div>
           </div>
         </div>
@@ -99,9 +117,7 @@ export default function Footer() {
         >
           <p>© {new Date().getFullYear()} Jonair Patani. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
-            Made with{" "}
-            <Heart size={12} style={{ color: "#7c3aed", fill: "#7c3aed" }} />{" "}
-            in the Philippines
+            Made with <Heart size={12} style={{ color: "#7c3aed", fill: "#7c3aed" }} /> in the Philippines
           </p>
         </div>
       </div>
