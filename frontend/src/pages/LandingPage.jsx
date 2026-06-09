@@ -256,7 +256,7 @@ export default function LandingPage() {
 
   const PROJ_TAGS = {
     Design: ["Figma","UI/UX","Picsart","Brand Design","Prototyping","Mobile Design","User Research","Canva","Graphic Design"],
-    Dev:    ["React","Vite","Tailwind CSS","Framer Motion"],
+    Dev:    ["React","Vite","Tailwind CSS","Framer Motion","Java","Java Swing","Apache NetBeans","MySQL","JDBC"],
     Video:  ["CapCut","Adobe Premiere Pro","Motion Graphics"],
   };
   const filteredProjs = projFilter === "All"

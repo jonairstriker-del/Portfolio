@@ -115,6 +115,22 @@ export function ReactIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── Java ────────────────────────────────────────────────────── */
+export function JavaIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      <rect width="24" height="24" rx="6" fill="#007396" />
+      {/* Coffee cup shape */}
+      <path d="M7 8h7l-1 8H8L7 8z" fill="white" opacity="0.9" />
+      <path d="M14 10h1.5a1.5 1.5 0 010 3H14" stroke="white" strokeWidth="1.2" fill="none" />
+      {/* Steam */}
+      <path d="M9 6 Q9.5 5 9 4" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+      <path d="M11 6 Q11.5 4.5 11 3" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+      <path d="M13 6 Q13.5 5 13 4" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+    </svg>
+  );
+}
+
 /* ── Default fallback ────────────────────────────────────────── */
 export function DefaultToolIcon({ size = 24, className = "" }) {
   return (
@@ -128,13 +144,16 @@ export function DefaultToolIcon({ size = 24, className = "" }) {
 
 /* ── Map: tool name → component ─────────────────────────────── */
 const TOOL_ICON_MAP = {
-  "Figma":    FigmaIcon,
-  "Canva":    CanvaIcon,
-  "CapCut":   CapCutIcon,
-  "ChatGPT":  ChatGPTIcon,
-  "VS Code":  VSCodeIcon,
-  "OBS":      OBSIcon,
-  "React":    ReactIcon,
+  "Figma":               FigmaIcon,
+  "Canva":               CanvaIcon,
+  "CapCut":              CapCutIcon,
+  "ChatGPT":             ChatGPTIcon,
+  "VS Code":             VSCodeIcon,
+  "OBS":                 OBSIcon,
+  "React":               ReactIcon,
+  "Java":                JavaIcon,
+  "Java Swing":          JavaIcon,
+  "Apache NetBeans":     JavaIcon,
 };
 
 export function getToolIcon(toolName) {
