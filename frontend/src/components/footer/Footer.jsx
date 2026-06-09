@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { Heart, ExternalLink, Mail } from "lucide-react";
-import { NAV_LINKS, SOCIAL_LINKS } from "../../constants";
+import { NAV_LINKS, SOCIAL_LINKS, PERSONAL_INFO } from "../../constants";
 
-/** Renders GH / in / IG as compact text badges since this lucide version
- *  does not export brand icons (Github, Linkedin, Instagram). */
 function SocialBadge({ type, label }) {
-  const map = { github: "GH", linkedin: "in", instagram: "IG" };
+  const map = { github: "GH", linkedin: "in", facebook: "FB" };
   return (
     <span className="text-xs font-bold leading-none" aria-label={label}>
       {map[type] ?? <ExternalLink size={12} />}
@@ -36,15 +34,17 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-xs">
-              Aspiring UI/UX Designer &amp; Creative Editor crafting beautiful
-              digital experiences — one pixel at a time.
+              Aspiring UI/UX Designer, Frontend Developer &amp; Video Editor — building skills one project at a time.
             </p>
             <a
-              href="mailto:jonairpatani@email.com"
-              className="inline-flex items-center gap-2 text-sm text-violet-light hover:text-violet-soft transition-colors"
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="inline-flex items-center gap-2 text-sm transition-colors"
+              style={{ color: "#a855f7" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#c084fc")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#a855f7")}
             >
               <Mail size={14} />
-              jonairpatani@email.com
+              {PERSONAL_INFO.email}
             </a>
           </div>
 

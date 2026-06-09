@@ -1,3 +1,18 @@
+// ─── Personal Info ────────────────────────────────────────────
+export const PERSONAL_INFO = {
+  name:        "Jonair A. Patani",
+  title:       "Aspiring UI/UX Designer, Frontend Developer & Video Editor",
+  email:       "jonairstriker@gmail.com",
+  phone:       "09510062828",
+  location:    "0860 J. Gabriel St, Baclaran, Parañaque City",
+  birthday:    "July 26, 2003",
+  facebook:    "Jonair Patani",
+};
+
+// ─── Resume ───────────────────────────────────────────────────
+export const RESUME_PATH     = "/resume/Jonair-Patani-Resume.pdf";
+export const RESUME_FILENAME = "Jonair-Patani-Resume.pdf";
+
 // ─── Navigation ───────────────────────────────────────────────
 export const NAV_LINKS = [
   { label: "Home",         path: "/" },
@@ -7,26 +22,128 @@ export const NAV_LINKS = [
   { label: "Experience",   path: "/experience" },
 ];
 
-// ─── Skills ───────────────────────────────────────────────────
+// ─── Hero content ─────────────────────────────────────────────
+export const HERO_CONTENT = {
+  greeting:    "Hello, I'm",
+  name:        "Jonair Patani",
+  title:       "Aspiring UI/UX Designer, Frontend Developer & Video Editor",
+  description:
+    "A dedicated Computer Science student committed to overcoming challenges and achieving goals. Approaching every task with discipline and a strong work ethic — eager to expand skills and grow professionally.",
+};
+
+// ─── Objective / About ────────────────────────────────────────
+export const ABOUT_ME =
+  "I am a dedicated and determined college student who is committed to overcoming challenges and achieving my goals. I approach every task with discipline and a strong work ethic, eager to expand my skills and knowledge. I am open to gaining experience in various fields, regardless of my current expertise, and I am focused on applying what I've learned so far to further develop my abilities and grow professionally.";
+
+// ─── Education ────────────────────────────────────────────────
+export const EDUCATION = [
+  {
+    school:   "Arellano University – Jose Abad Santos Campus",
+    degree:   "Bachelor of Science in Computer Science",
+    field:    "1st Year College",
+    year:     "2023 – 2024",
+    location: "3058 Taft Avenue, Pasay City",
+    status:   "ongoing",
+  },
+  {
+    school:   "Arellano University – Jose Abad Santos Campus",
+    degree:   "Information and Communication Technology",
+    field:    "Senior High School",
+    year:     "2019 – 2023",
+    location: "3058 Taft Avenue, Pasay City",
+    status:   "completed",
+  },
+  {
+    school:   "Baclaran Parañaque National High School",
+    degree:   "Junior High School",
+    field:    "",
+    year:     "2017 – 2020",
+    location: "1702 Dimasalang Ext. Baclaran, Parañaque City",
+    status:   "completed",
+  },
+  {
+    school:   "Baclaran Elementary School Unit 2",
+    degree:   "Elementary Education",
+    field:    "",
+    year:     "2010 – 2016",
+    location: "Santiago St. Parañaque City",
+    status:   "completed",
+  },
+];
+
+// ─── Skills (with progress bars) ─────────────────────────────
 export const SKILLS = [
-  { name: "UI/UX Design",       level: 85, category: "design"  },
-  { name: "Figma",               level: 90, category: "design"  },
-  { name: "Prototyping",         level: 82, category: "design"  },
-  { name: "Video Editing",       level: 80, category: "editing" },
-  { name: "Adobe Premiere Pro",  level: 75, category: "editing" },
-  { name: "CapCut",              level: 88, category: "editing" },
-  { name: "React",               level: 65, category: "dev"     },
-  { name: "Tailwind CSS",        level: 72, category: "dev"     },
+  { name: "UI/UX Design",   level: 75, category: "design"  },
+  { name: "Figma",          level: 70, category: "design"  },
+  { name: "Canva",          level: 85, category: "design"  },
+  { name: "CapCut",         level: 90, category: "editing" },
+  { name: "Video Editing",  level: 80, category: "editing" },
+  { name: "React",          level: 60, category: "dev"     },
+];
+
+// ─── Soft Skills (tag cloud) ──────────────────────────────────
+export const SOFT_SKILLS = [
+  "Time Management",
+  "Patience",
+  "Editing",
+  "Adaptability",
+  "Good Listener",
 ];
 
 // ─── Tools ────────────────────────────────────────────────────
 export const TOOLS = [
-  { name: "Figma",              icon: "Pen",      category: "Design"   },
-  { name: "CapCut",             icon: "Video",    category: "Editing"  },
-  { name: "Adobe Premiere",     icon: "Film",     category: "Editing"  },
-  { name: "Picsart",            icon: "Image",    category: "Design"   },
-  { name: "ChatGPT",            icon: "Bot",      category: "AI"       },
-  { name: "VS Code",            icon: "Code",     category: "Dev"      },
+  { name: "Figma",    icon: "Pen",   category: "Design"  },
+  { name: "Canva",    icon: "Image", category: "Design"  },
+  { name: "CapCut",   icon: "Video", category: "Editing" },
+  { name: "ChatGPT",  icon: "Bot",   category: "AI"      },
+  { name: "VS Code",  icon: "Code",  category: "Dev"     },
+  { name: "React",    icon: "Film",  category: "Dev"     },
+];
+
+// ─── Experience ───────────────────────────────────────────────
+export const EXPERIENCES = [
+  {
+    id:          "1",
+    title:       "Computer Science Student",
+    company:     "Arellano University – Jose Abad Santos Campus",
+    period:      "2023 – Present",
+    description: "Currently pursuing a Bachelor of Science in Computer Science. Building skills in UI/UX Design, Frontend Development, and Video Editing through coursework and self-directed learning.",
+    type:        "academic",
+    isCurrent:   true,
+    end_date:    null,
+  },
+];
+
+// ─── Character References ─────────────────────────────────────
+export const REFERENCES = [
+  {
+    name:     "Jhon Michael T. Gadia",
+    role:     "3rd Year College Student",
+    company:  "Philippine College of Criminology",
+    address:  "641 Sales Street, Sta. Cruz, Manila",
+    phone:    "0951-897-9304",
+  },
+  {
+    name:     "Ricojhan Dagohoy",
+    role:     "Senior Crew Dining",
+    company:  "Jollibee",
+    address:  "2064 Santiago St. Baclaran, Parañaque City",
+    phone:    "0916-547-2253",
+  },
+  {
+    name:     "Sean Vrien Edis",
+    role:     "Benefits Administrator",
+    company:  "Conduent",
+    address:  "49 5 de Junio St, Naia, Pasay City",
+    phone:    "0915-601-3585",
+  },
+];
+
+// ─── Stats ────────────────────────────────────────────────────
+export const STATS = [
+  { label: "Projects",     value: "3+"    },
+  { label: "Design Tools", value: "4+"    },
+  { label: "Learning",     value: "Daily" },
 ];
 
 // ─── Projects ─────────────────────────────────────────────────
@@ -39,7 +156,7 @@ export const FEATURED_PROJECTS = [
     technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     image_url: null,
     github_url: "https://github.com/jonairpatani",
-    live_url: null,
+    live_url: "https://portfolio-pied-six-58.vercel.app",
   },
   {
     id: "2",
@@ -56,7 +173,7 @@ export const FEATURED_PROJECTS = [
     title: "Video Production Reel",
     description:
       "Creative video editing project combining motion graphics, dynamic cuts, color grading, and storytelling techniques for social media content.",
-    technologies: ["CapCut", "Adobe Premiere Pro", "Motion Graphics"],
+    technologies: ["CapCut", "Motion Graphics"],
     image_url: null,
     github_url: null,
     live_url: null,
@@ -69,18 +186,8 @@ export const ALL_PROJECTS = [
     id: "4",
     title: "Social Media Branding",
     description:
-      "Complete brand identity system including logo design, color palette, typography rules, and a full set of social media post templates.",
-    technologies: ["Figma", "Picsart", "Brand Design"],
-    image_url: null,
-    github_url: null,
-    live_url: null,
-  },
-  {
-    id: "5",
-    title: "Mobile App UI Design",
-    description:
-      "High-fidelity mobile UI for a productivity app — dark glassmorphism theme, intuitive navigation, micro-interactions, and a documented component library.",
-    technologies: ["Figma", "UI/UX", "Mobile Design"],
+      "Complete brand identity system including logo design, color palette, typography rules, and social media post templates.",
+    technologies: ["Canva", "Graphic Design"],
     image_url: null,
     github_url: null,
     live_url: null,
@@ -126,41 +233,9 @@ export const CERTIFICATES = [
   },
 ];
 
-// ─── Experience ───────────────────────────────────────────────
-export const EXPERIENCES = [
-  {
-    id: "1",
-    company: "Freelance",
-    position: "UI/UX Designer & Creative Editor",
-    description:
-      "Designing user interfaces and editing creative video content for clients. Delivering 10+ design projects and 20+ video productions across lifestyle, e-commerce, and personal branding.",
-    start_date: "2023-01-01",
-    end_date: null,
-    type: "freelance",
-  },
-  {
-    id: "2",
-    company: "Student Organization",
-    position: "Design Lead",
-    description:
-      "Led the visual identity and content team for a university organization. Created event posters, social media graphics, and branded materials used across digital and print channels.",
-    start_date: "2022-06-01",
-    end_date: "2023-06-01",
-    type: "academic",
-  },
-];
-
-// ─── Social links ─────────────────────────────────────────────
+// ─── Social Links ─────────────────────────────────────────────
 export const SOCIAL_LINKS = [
-  { label: "GitHub",    url: "https://github.com/jonairpatani",    icon: "github"    },
+  { label: "GitHub",    url: "https://github.com/jonairpatani",      icon: "github"    },
   { label: "LinkedIn",  url: "https://linkedin.com/in/jonairpatani", icon: "linkedin"  },
-  { label: "Instagram", url: "https://instagram.com/jonairpatani",  icon: "instagram" },
-];
-
-// ─── Stats ────────────────────────────────────────────────────
-export const STATS = [
-  { label: "Projects Completed", value: "15+"  },
-  { label: "Certificates Earned", value: "5+"  },
-  { label: "Tools Mastered",     value: "6+"   },
-  { label: "Years of Practice",  value: "2+"   },
+  { label: "Facebook",  url: "https://facebook.com/jonairpatani",    icon: "facebook"  },
 ];
