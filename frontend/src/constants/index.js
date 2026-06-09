@@ -40,8 +40,8 @@ export const EDUCATION = [
   {
     school:   "Arellano University – Jose Abad Santos Campus",
     degree:   "Bachelor of Science in Computer Science",
-    field:    "1st Year College",
-    year:     "2023 – 2024",
+    field:    "3rd Year College (Incoming 4th Year)",
+    year:     "2023 – Present",
     location: "3058 Taft Avenue, Pasay City",
     status:   "ongoing",
   },
@@ -105,10 +105,10 @@ export const TOOLS = [
 export const EXPERIENCES = [
   {
     id:          "1",
-    title:       "Computer Science Student",
+    title:       "3rd Year Computer Science Student",
     company:     "Arellano University – Jose Abad Santos Campus",
     period:      "2023 – Present",
-    description: "Currently pursuing a Bachelor of Science in Computer Science. Building skills in UI/UX Design, Frontend Development, and Video Editing through coursework and self-directed learning.",
+    description: "Currently a 3rd year BSCS student (incoming 4th year). Building skills in UI/UX Design, Frontend Development, Video Editing, and Live Streaming through coursework and self-directed learning.",
     type:        "academic",
     isCurrent:   true,
     end_date:    null,

@@ -279,7 +279,7 @@ export default function Resume() {
                           style={{ background: "#7c3aed" }}
                         />
                         <p className="text-[11.5px] font-bold text-gray-800">
-                          Computer Science Student
+                          3rd Year Computer Science Student (Incoming 4th Year)
                         </p>
                       </div>
                       <p className="text-[11px] text-gray-500 ml-3.5">
@@ -287,7 +287,7 @@ export default function Resume() {
                       </p>
                       <ul className="mt-1.5 ml-3.5 space-y-1">
                         {[
-                          "Pursuing BSCS while building skills in UI/UX Design and Frontend Development.",
+                          "Pursuing BSCS — currently 3rd year, incoming 4th year (2023–Present).",
                           "Worked in production environments twice — gaining real-world professional exposure.",
                           "Self-directed learning in video editing, live streaming, and creative content.",
                         ].map((item, i) => (
