@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "../../constants";
 
@@ -74,9 +74,9 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            <a href="/resume.pdf" download className="btn-primary ml-3 text-sm py-2 px-4">
-              <Download size={14} /> Resume
-            </a>
+            <Link to="/resume" className="btn-primary ml-3 text-sm py-2 px-4">
+              <FileText size={14} /> Resume
+            </Link>
           </div>
 
           {/* ── Mobile toggle ── */}
@@ -119,14 +119,13 @@ export default function Navbar() {
                   {link.label}
                 </NavLink>
               ))}
-              <a
-                href="/resume.pdf"
-                download
+              <Link
+                to="/resume"
                 onClick={() => setIsOpen(false)}
                 className="btn-primary mt-3 justify-center"
               >
-                <Download size={14} /> Download Resume
-              </a>
+                <FileText size={14} /> View Resume
+              </Link>
             </div>
           </motion.div>
         )}

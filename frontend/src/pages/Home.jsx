@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Download, Video, Bot, Image,
-  Film, Code, Pen, Sparkles, Radio,
+  Film, Code, Pen, Sparkles, Radio, FileText,
 } from "lucide-react";
 import SectionHeader from "../components/common/SectionHeader";
 import AnimatedSection from "../components/common/AnimatedSection";
@@ -213,9 +213,9 @@ export default function Home() {
               <Link to="/projects" className="btn-primary">
                 View My Work <ArrowRight size={15} />
               </Link>
-              <a href="/resume/Jonair-Patani-Resume.pdf" download="Jonair-Patani-Resume.pdf" className="btn-outline">
-                <Download size={15} /> Download CV
-              </a>
+              <Link to="/resume" className="btn-outline">
+                <FileText size={15} /> View Resume
+              </Link>
             </motion.div>
 
             {/* Stats */}
@@ -352,9 +352,9 @@ export default function Home() {
                 <a href="mailto:jonairstriker@gmail.com" className="btn-primary">
                   Get in Touch <ArrowRight size={15} />
                 </a>
-                <a href="/resume/Jonair-Patani-Resume.pdf" download="Jonair-Patani-Resume.pdf" className="btn-outline">
-                  <Download size={15} /> Download Resume
-                </a>
+                <Link to="/resume" className="btn-outline">
+                  <FileText size={15} /> View Resume
+                </Link>
               </div>
             </div>
           </div>
