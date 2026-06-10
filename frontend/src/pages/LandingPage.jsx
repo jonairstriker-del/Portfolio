@@ -679,7 +679,7 @@ export default function LandingPage() {
                       }}
                     >
                       {/* Category header */}
-                      <div className="flex items-center gap-2 mb-4">
+                      <div className="flex items-center justify-center gap-2 mb-5">
                         <span
                           className="w-2 h-2 rounded-full"
                           style={{ background: meta.dot, boxShadow: `0 0 6px ${meta.dot}` }}
@@ -693,7 +693,7 @@ export default function LandingPage() {
                       </div>
 
                       {/* Tool icons row */}
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-4 justify-center">
                         {items.map((tool, ti) => {
                           const Icon = getToolIcon(tool.name);
                           return (
