@@ -103,6 +103,7 @@ export const TOOLS = [
   { name: "ChatGPT",          icon: "Bot",      category: "AI"        },
   { name: "VS Code",          icon: "Code",     category: "Dev"       },
   { name: "OBS",              icon: "Radio",    category: "Streaming" },
+  { name: "TikTok LIVE",     icon: "TikTok",   category: "Streaming" },
 ];
 
 // ─── Experience ───────────────────────────────────────────────

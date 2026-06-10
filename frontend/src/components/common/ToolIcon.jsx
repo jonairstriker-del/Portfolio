@@ -166,6 +166,44 @@ export function PixellabIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── TikTok LIVE Studio ──────────────────────────────────────── */
+export function TikTokIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Coral-red rounded square — matches the real TikTok LIVE Studio icon */}
+      <rect width="24" height="24" rx="6" fill="#EE1D52" />
+
+      {/* TikTok musical note logo — white
+          The shape is a stylised eighth note:
+          - a vertical stem on the right
+          - a flag curling to the right at the top
+          - a filled oval (note head) at the bottom-left
+          Path traced to match the real TikTok logomark proportions */}
+      <path
+        d="
+          M15.2 4.5
+          C15.2 4.5 15.6 7.1 18.2 7.8
+          L18.2 10.4
+          C18.2 10.4 16.1 10.3 14.6 9.1
+          L14.6 15.3
+          C14.6 18.1 12.3 20.4 9.5 20.4
+          C6.7 20.4 4.4 18.1 4.4 15.3
+          C4.4 12.5 6.7 10.2 9.5 10.2
+          C9.9 10.2 10.3 10.3 10.6 10.4
+          L10.6 13.1
+          C10.3 13.0 9.9 12.9 9.5 12.9
+          C8.2 12.9 7.1 14.0 7.1 15.3
+          C7.1 16.6 8.2 17.7 9.5 17.7
+          C10.8 17.7 11.9 16.6 11.9 15.3
+          L11.9 4.5
+          Z
+        "
+        fill="white"
+      />
+    </svg>
+  );
+}
+
 /* ── Adobe Premiere Pro ──────────────────────────────────────── */
 export function AdobePremierIcon({ size = 24, className = "" }) {
   return (
@@ -236,6 +274,7 @@ const TOOL_ICON_MAP = {
   "Adobe Premiere":  AdobePremierIcon,
   "ChatGPT":         ChatGPTIcon,
   "VS Code":         VSCodeIcon,
+  "TikTok LIVE":     TikTokIcon,
   "OBS":             OBSIcon,
   "React":           ReactIcon,
 };
