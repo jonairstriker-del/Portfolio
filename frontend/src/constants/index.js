@@ -201,20 +201,20 @@ export const FEATURED_PROJECTS = [
   },
   {
     id: "2",
-    title: "Shopping UI — Sneaker Catalog",
+    title: "UI/UX Case Study",
     description:
-      "A Java Swing desktop application built in Apache NetBeans. Features a sneaker product catalog with image display, CRUD operations, a searchable table view, and custom Graphics2D image rendering.",
-    technologies: ["Java", "Java Swing", "Apache NetBeans", "MySQL", "JDBC"],
+      "End-to-end UI/UX case study covering user research, information architecture, wireframing, and high-fidelity prototyping. Focused on mobile-first design patterns.",
+    technologies: ["Figma", "UI/UX", "Prototyping", "User Research"],
     image_url: null,
     github_url: null,
     live_url: null,
   },
   {
     id: "3",
-    title: "UI/UX Case Study",
+    title: "Video Production Reel",
     description:
-      "End-to-end UI/UX case study covering user research, information architecture, wireframing, and high-fidelity prototyping. Focused on mobile-first design patterns.",
-    technologies: ["Figma", "UI/UX", "Prototyping", "User Research"],
+      "Creative video editing project combining motion graphics, dynamic cuts, color grading, and storytelling techniques for social media content.",
+    technologies: ["CapCut", "Motion Graphics"],
     image_url: null,
     github_url: null,
     live_url: null,
@@ -225,16 +225,6 @@ export const ALL_PROJECTS = [
   ...FEATURED_PROJECTS,
   {
     id: "4",
-    title: "Shopping UI — Sneaker Catalog",
-    description:
-      "A Java Swing desktop application built in Apache NetBeans. Features a sneaker product catalog with image display, CRUD operations (Insert, Update, Delete), a searchable table view, and a custom-painted panel using Graphics2D for smooth image rendering.",
-    technologies: ["Java", "Java Swing", "Apache NetBeans", "MySQL", "JDBC"],
-    image_url: null,
-    github_url: null,
-    live_url: null,
-  },
-  {
-    id: "5",
     title: "Social Media Branding",
     description:
       "Complete brand identity system including logo design, color palette, typography rules, and social media post templates.",

@@ -111,79 +111,6 @@ function ProjectCard({ project, index = 0 }) {
         style={{ background: "linear-gradient(135deg,#1a1a1a 0%,#0f0f0f 100%)" }}>
         {image_url
           ? <img src={image_url} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-          : id === "2" /* Shopping UI — custom Java Swing thumbnail */
-          ? (
-            <div className="w-full h-full relative overflow-hidden select-none"
-              style={{ background: "linear-gradient(160deg,#001a33 0%,#002244 40%,#001a33 100%)" }}>
-
-              {/* Grid lines */}
-              <div className="absolute inset-0 opacity-[0.06]"
-                style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(0,116,150,1) 20px,rgba(0,116,150,1) 21px),repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(0,116,150,1) 20px,rgba(0,116,150,1) 21px)" }} />
-
-              {/* Sneaker silhouette — Jordan 1 side profile */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg viewBox="0 0 200 100" width="200" height="100" className="opacity-25 group-hover:opacity-40 transition-opacity duration-500">
-                  {/* Sole */}
-                  <ellipse cx="100" cy="85" rx="80" ry="10" fill="#007396" />
-                  {/* Shoe body */}
-                  <path d="M20 80 Q30 60 50 55 Q70 50 90 52 Q110 50 125 45 Q140 38 150 30 Q160 22 165 25 Q170 28 155 38 Q145 45 130 52 Q115 58 100 60 Q80 62 60 65 Q45 68 35 75 Z"
-                    fill="#CC0000" />
-                  {/* Nike swoosh */}
-                  <path d="M60 62 Q90 52 140 42 Q130 50 80 65 Z" fill="black" opacity="0.8" />
-                  {/* Tongue */}
-                  <path d="M125 45 Q130 35 135 30 Q138 27 140 30 Q137 38 130 48 Z" fill="#f0f0f0" />
-                  {/* Laces */}
-                  <path d="M110 55 Q115 50 120 52 M115 58 Q120 53 125 55" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
-                  {/* High top */}
-                  <path d="M150 30 Q155 20 158 15 Q162 10 165 12 Q168 15 162 22 Q157 28 152 34 Z" fill="#CC0000" />
-                </svg>
-              </div>
-
-              {/* App UI mockup overlay */}
-              <div className="absolute bottom-0 left-0 right-0 h-20 px-3 pb-2 flex items-end gap-2"
-                style={{ background: "linear-gradient(to top,rgba(0,10,20,0.95),transparent)" }}>
-                {/* Form fields mock */}
-                <div className="flex flex-col gap-1 flex-1">
-                  {["ID", "Name", "Price"].map((f) => (
-                    <div key={f} className="flex items-center gap-1.5">
-                      <span className="text-[8px] font-bold" style={{ color:"rgba(0,180,216,0.7)", minWidth:28 }}>{f}:</span>
-                      <div className="flex-1 h-2.5 rounded-sm" style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)" }} />
-                    </div>
-                  ))}
-                </div>
-                {/* Table mock */}
-                <div className="flex-1">
-                  <div className="grid grid-cols-3 gap-px mb-px">
-                    {["ID","Name","Price"].map((h) => (
-                      <div key={h} className="text-[7px] font-bold px-1 py-0.5 text-center"
-                        style={{ background:"rgba(0,116,150,0.4)", color:"rgba(200,230,255,0.9)" }}>{h}</div>
-                    ))}
-                  </div>
-                  {[1,2,3].map((r) => (
-                    <div key={r} className="grid grid-cols-3 gap-px mb-px">
-                      {[0,1,2].map((c) => (
-                        <div key={c} className="h-2.5 rounded-sm"
-                          style={{ background:`rgba(255,255,255,${0.03 + c * 0.02})` }} />
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Java badge top-right */}
-              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full"
-                style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(0,116,150,0.4)" }}>
-                <span className="text-[10px] font-black" style={{ color:"#007396" }}>☕</span>
-                <span className="text-[10px] font-bold text-white">Java Swing</span>
-              </div>
-
-              {/* NetBeans badge top-left */}
-              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full"
-                style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(0,116,150,0.3)" }}>
-                <span className="text-[10px] font-bold" style={{ color:"rgba(200,230,255,0.8)" }}>Apache NetBeans</span>
-              </div>
-            </div>
-          )
           : <div className="flex flex-col items-center gap-3 text-muted">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background:"rgba(124,58,237,0.15)" }}>
                 <Layers size={26} style={{ color:"#c084fc" }} />
@@ -329,7 +256,7 @@ export default function LandingPage() {
 
   const PROJ_TAGS = {
     Design: ["Figma","UI/UX","Picsart","Brand Design","Prototyping","Mobile Design","User Research","Canva","Graphic Design"],
-    Dev:    ["React","Vite","Tailwind CSS","Framer Motion","Java","Java Swing","Apache NetBeans","MySQL","JDBC"],
+    Dev:    ["React","Vite","Tailwind CSS","Framer Motion"],
     Video:  ["CapCut","Adobe Premiere Pro","Motion Graphics"],
   };
   const filteredProjs = projFilter === "All"
@@ -469,52 +396,51 @@ export default function LandingPage() {
                     e.currentTarget.style.boxShadow   = "none";
                   }}
                 >
-                  {/* ── Banner: real screenshot with designed fallback ── */}
+                  {/* ── Designed thumbnail banner (no image file needed) ── */}
                   {platform.icon === "yt" ? (
                     /* YouTube banner */
                     <div className="relative h-52 overflow-hidden select-none"
                       style={{ background: "linear-gradient(160deg,#1a0000 0%,#2d0000 40%,#1a0000 100%)" }}>
 
-                      {/* Real screenshot — shown if file exists */}
-                      <img
-                        src="/images/youtube-channel.jpg"
-                        alt="YouTube STRIKER channel"
-                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => { e.currentTarget.style.display = "none"; }}
-                      />
-
-                      {/* Noise texture grid (visible only when no image) */}
+                      {/* Noise texture grid */}
                       <div className="absolute inset-0 opacity-[0.04]"
                         style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(255,255,255,0.5) 30px,rgba(255,255,255,0.5) 31px),repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,255,255,0.5) 30px,rgba(255,255,255,0.5) 31px)" }} />
 
-                      {/* Watermark (visible only when no image) */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                      {/* Big YT play icon watermark */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
                         <svg viewBox="0 0 90 63" width="180" fill="#FF0000">
                           <path d="M88.1 9.9C87 5.9 83.9 2.8 79.9 1.7 72.9 0 45 0 45 0S17.1 0 10.1 1.7C6.1 2.8 3 5.9 1.9 9.9 0 16.9 0 31.5 0 31.5s0 14.6 1.9 21.6C3 57.1 6.1 60.2 10.1 61.3 17.1 63 45 63 45 63s27.9 0 34.9-1.7c4-1.1 7.1-4.2 8.2-8.2C90 46.1 90 31.5 90 31.5s0-14.6-1.9-21.6z"/>
                           <polygon points="36,45 59,31.5 36,18" fill="white"/>
                         </svg>
                       </div>
 
-                      {/* Fallback center content (hidden when image loads) */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 pointer-events-none">
+                      {/* "STRIKER" title text in center */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
                         <div className="flex items-center gap-3">
+                          {/* Channel avatar circle */}
                           <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                            style={{ background: "linear-gradient(135deg,#FF0000,#8B0000)", border: "2px solid rgba(255,0,0,0.4)", boxShadow: "0 0 20px rgba(255,0,0,0.4)" }}>S</div>
+                            style={{ background: "linear-gradient(135deg,#FF0000,#8B0000)", border: "2px solid rgba(255,0,0,0.4)", boxShadow: "0 0 20px rgba(255,0,0,0.4)" }}>
+                            S
+                          </div>
                           <div>
-                            <p className="text-white font-black text-2xl tracking-wider" style={{ textShadow: "0 0 20px rgba(255,0,0,0.6)" }}>STRIKER</p>
-                            <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>@STRIKER20030 · 453 subscribers</p>
+                            <p className="text-white font-black text-2xl tracking-wider" style={{ textShadow: "0 0 20px rgba(255,0,0,0.6)" }}>
+                              STRIKER
+                            </p>
+                            <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>
+                              @STRIKER20030 · 453 subscribers
+                            </p>
                           </div>
                         </div>
                       </div>
 
-                      {/* Always-present bottom gradient */}
-                      <div className="absolute inset-x-0 bottom-0 h-20"
-                        style={{ background: "linear-gradient(to top,rgba(5,0,0,0.92),transparent)" }} />
+                      {/* Bottom gradient */}
+                      <div className="absolute inset-x-0 bottom-0 h-16"
+                        style={{ background: "linear-gradient(to top,rgba(5,0,0,0.95),transparent)" }} />
 
-                      {/* Mini thumbnails strip */}
-                      <div className="absolute bottom-2 left-0 right-0 flex gap-1.5 px-3 opacity-30 pointer-events-none">
+                      {/* Mini video thumbnails strip at bottom */}
+                      <div className="absolute bottom-2 left-0 right-0 flex gap-1.5 px-3 opacity-40">
                         {["#1a1a2e","#16213e","#0f3460","#533483","#2c1810"].map((c, i) => (
-                          <div key={i} className="flex-1 h-8 rounded-sm" style={{ background: c }} />
+                          <div key={i} className="flex-1 h-10 rounded-sm" style={{ background: c }} />
                         ))}
                       </div>
 
@@ -538,7 +464,9 @@ export default function LandingPage() {
                       {/* Handle */}
                       <div className="absolute bottom-3 left-4">
                         <p className="text-sm font-semibold text-white">{platform.handle}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(217,217,217,0.5)" }}>Joined {platform.joined}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(217,217,217,0.5)" }}>
+                          Joined {platform.joined}
+                        </p>
                       </div>
                     </div>
                   ) : (
@@ -546,39 +474,45 @@ export default function LandingPage() {
                     <div className="relative h-52 overflow-hidden select-none"
                       style={{ background: "linear-gradient(160deg,#000000 0%,#0a0a0a 40%,#001a1a 100%)" }}>
 
-                      {/* Real screenshot */}
-                      <img
-                        src="/images/tiktok-profile.jpg"
-                        alt="TikTok STRIKER profile"
-                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => { e.currentTarget.style.display = "none"; }}
-                      />
-
-                      {/* Scan-line texture */}
-                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                      {/* Animated scan-line effect */}
+                      <div className="absolute inset-0 opacity-[0.03]"
                         style={{ backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(105,201,208,1) 2px,rgba(105,201,208,1) 3px)" }} />
 
-                      {/* Fallback grid */}
-                      <div className="absolute inset-0 grid grid-cols-3 gap-0.5 p-0.5 opacity-20 pointer-events-none">
+                      {/* TikTok logo mark */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-8">
+                        <svg viewBox="0 0 50 56" width="120" fill="none">
+                          <path d="M49.9 13.4a14.9 14.9 0 01-9-3 14.9 14.9 0 01-5.5-11.4h-9.6v38.5a6.1 6.1 0 11-4.4-5.9V22a15.7 15.7 0 00-2 0 15.9 15.9 0 100 31.9 15.9 15.9 0 0015.9-15.9V19.5a24.4 24.4 0 0014.6 4.8V13.4z"
+                            fill="#69C9D0" opacity="0.15"/>
+                        </svg>
+                      </div>
+
+                      {/* Profile grid mock */}
+                      <div className="absolute inset-0 grid grid-cols-3 gap-0.5 p-0.5 opacity-20">
                         {["#1a1a2e","#16213e","#533483","#0f3460","#2c1810","#1a0a2e"].map((c, i) => (
                           <div key={i} className="rounded-sm" style={{ background: c }} />
                         ))}
                       </div>
 
-                      {/* Fallback center */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 pointer-events-none"
-                        style={{ background: "linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,26,26,0.5))" }}>
+                      {/* Center profile */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2"
+                        style={{ background: "linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,26,26,0.7))" }}>
                         <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                          style={{ background: "linear-gradient(135deg,#69C9D0,#EE1D52)", border: "2px solid rgba(105,201,208,0.5)", boxShadow: "0 0 20px rgba(105,201,208,0.3)" }}>S</div>
+                          style={{ background: "linear-gradient(135deg,#69C9D0,#EE1D52)", border: "2px solid rgba(105,201,208,0.5)", boxShadow: "0 0 20px rgba(105,201,208,0.3)" }}>
+                          S
+                        </div>
                         <div className="text-center">
-                          <p className="text-white font-black text-lg tracking-wide" style={{ textShadow: "0 0 16px rgba(105,201,208,0.5)" }}>×STRIKER×</p>
-                          <p className="text-xs mt-0.5" style={{ color: "rgba(105,201,208,0.7)" }}>@striker.only</p>
+                          <p className="text-white font-black text-lg tracking-wide" style={{ textShadow: "0 0 16px rgba(105,201,208,0.5)" }}>
+                            ×STRIKER×
+                          </p>
+                          <p className="text-xs mt-0.5" style={{ color: "rgba(105,201,208,0.7)" }}>
+                            @striker.only
+                          </p>
                         </div>
                       </div>
 
                       {/* Bottom gradient */}
-                      <div className="absolute inset-x-0 bottom-0 h-20"
-                        style={{ background: "linear-gradient(to top,rgba(0,5,5,0.92),transparent)" }} />
+                      <div className="absolute inset-x-0 bottom-0 h-16"
+                        style={{ background: "linear-gradient(to top,rgba(0,5,5,0.95),transparent)" }} />
 
                       {/* Platform badge */}
                       <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full"
