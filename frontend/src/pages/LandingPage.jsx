@@ -396,112 +396,97 @@ export default function LandingPage() {
                     e.currentTarget.style.boxShadow   = "none";
                   }}
                 >
-                  {/* ── Banner: real screenshot with styled fallback ── */}
+                  {/* ── Platform banner with real screenshot ── */}
                   {platform.icon === "yt" ? (
-                    /* ── YouTube banner ── */
-                    <div className="relative h-52 overflow-hidden select-none">
-                      {/* Real screenshot — shown when file exists */}
+                    /* ══ YouTube banner ══ */
+                    <div className="relative h-56 overflow-hidden select-none">
+                      {/* Real screenshot fills the entire banner */}
                       <img
-                        src="/images/youtube-banner.jpg"
+                        src="/images/youtube-banner.png"
                         alt="YouTube STRIKER channel"
-                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => { e.currentTarget.style.display = "none"; }}
+                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Fallback background — shown when image missing */}
-                      <div className="absolute inset-0 -z-10"
-                        style={{ background: "linear-gradient(160deg,#1a0000 0%,#2d0000 40%,#1a0000 100%)" }}>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                          <div className="flex items-center gap-3">
-                            <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                              style={{ background:"linear-gradient(135deg,#FF0000,#8B0000)", border:"2px solid rgba(255,0,0,0.4)", boxShadow:"0 0 20px rgba(255,0,0,0.4)" }}>S</div>
-                            <div>
-                              <p className="text-white font-black text-2xl tracking-wider" style={{ textShadow:"0 0 20px rgba(255,0,0,0.6)" }}>STRIKER</p>
-                              <p className="text-xs mt-0.5" style={{ color:"rgba(255,255,255,0.5)" }}>@STRIKER20030 · 453 subscribers</p>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Mini thumbnail strip */}
-                        <div className="absolute bottom-2 left-0 right-0 flex gap-1.5 px-3 opacity-40">
-                          {["#1a1a2e","#16213e","#0f3460","#533483","#2c1810"].map((c, i) => (
-                            <div key={i} className="flex-1 h-10 rounded-sm" style={{ background: c }} />
-                          ))}
-                        </div>
-                      </div>
-                      {/* Always-on gradient overlay */}
-                      <div className="absolute inset-0 pointer-events-none"
-                        style={{ background:"linear-gradient(to top,rgba(5,0,0,0.88) 0%,rgba(5,0,0,0.1) 50%,transparent 100%)" }} />
-                      {/* Badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full"
-                        style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(255,0,0,0.35)" }}>
-                        <Play size={11} style={{ color:"#FF0000", fill:"#FF0000" }} />
-                        <span className="text-xs font-bold text-white">YouTube — STRIKER</span>
+                      {/* Dark gradient overlay */}
+                      <div className="absolute inset-0"
+                        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 55%, rgba(5,0,0,0.93) 100%)" }} />
+                      {/* Left red accent bar */}
+                      <div className="absolute inset-y-0 left-0 w-1"
+                        style={{ background: "linear-gradient(to bottom,#FF0000,#8B0000)" }} />
+                      {/* Top badge */}
+                      <div className="absolute top-3 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                        style={{ background: "rgba(0,0,0,0.72)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,0,0,0.4)" }}>
+                        <Play size={11} style={{ color: "#FF0000", fill: "#FF0000" }} />
+                        <span className="text-xs font-bold text-white tracking-wide">YouTube — STRIKER</span>
                       </div>
                       {/* External link */}
                       <a href={platform.url} target="_blank" rel="noopener noreferrer"
-                        className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all"
-                        style={{ background:"rgba(0,0,0,0.6)", backdropFilter:"blur(8px)" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background="#FF0000")}
-                        onMouseLeave={(e) => (e.currentTarget.style.background="rgba(0,0,0,0.6)")}
+                        className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
+                        style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(8px)" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "#FF0000")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.6)")}
                         aria-label="Visit YouTube channel">
                         <ExternalLink size={13} className="text-white" />
                       </a>
-                      {/* Handle */}
-                      <div className="absolute bottom-3 left-4">
-                        <p className="text-sm font-semibold text-white">{platform.handle}</p>
-                        <p className="text-xs mt-0.5" style={{ color:"rgba(217,217,217,0.5)" }}>Joined {platform.joined}</p>
+                      {/* Bottom row */}
+                      <div className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-end justify-between">
+                        <div>
+                          <p className="text-white font-bold text-sm leading-none">{platform.handle}</p>
+                          <p className="text-xs mt-1" style={{ color: "rgba(217,217,217,0.5)" }}>Joined {platform.joined}</p>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+                          style={{ background: "rgba(255,0,0,0.16)", border: "1px solid rgba(255,0,0,0.28)" }}>
+                          <span className="text-xs font-bold" style={{ color: "#FF6666" }}>453</span>
+                          <span className="text-[10px]" style={{ color: "rgba(217,217,217,0.5)" }}>subs</span>
+                        </div>
                       </div>
                     </div>
                   ) : (
-                    /* ── TikTok banner ── */
-                    <div className="relative h-52 overflow-hidden select-none">
+                    /* ══ TikTok banner ══ */
+                    <div className="relative h-56 overflow-hidden select-none">
                       {/* Real screenshot */}
                       <img
-                        src="/images/tiktok-banner.jpg"
+                        src="/images/tiktok-banner.png"
                         alt="TikTok ×STRIKER× profile"
-                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => { e.currentTarget.style.display = "none"; }}
+                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Fallback background */}
-                      <div className="absolute inset-0 -z-10"
-                        style={{ background:"linear-gradient(160deg,#000000 0%,#0a0a0a 40%,#001a1a 100%)" }}>
-                        <div className="absolute inset-0 grid grid-cols-3 gap-0.5 p-0.5 opacity-20">
-                          {["#1a1a2e","#16213e","#533483","#0f3460","#2c1810","#1a0a2e"].map((c, i) => (
-                            <div key={i} className="rounded-sm" style={{ background: c }} />
-                          ))}
-                        </div>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2"
-                          style={{ background:"linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,26,26,0.7))" }}>
-                          <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl text-white"
-                            style={{ background:"linear-gradient(135deg,#69C9D0,#EE1D52)", border:"2px solid rgba(105,201,208,0.5)", boxShadow:"0 0 20px rgba(105,201,208,0.3)" }}>S</div>
-                          <p className="text-white font-black text-lg" style={{ textShadow:"0 0 16px rgba(105,201,208,0.5)" }}>×STRIKER×</p>
-                          <p className="text-xs" style={{ color:"rgba(105,201,208,0.7)" }}>@striker.only</p>
-                        </div>
-                      </div>
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 pointer-events-none"
-                        style={{ background:"linear-gradient(to top,rgba(0,5,5,0.88) 0%,rgba(0,5,5,0.1) 50%,transparent 100%)" }} />
-                      {/* Badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full"
-                        style={{ background:"rgba(0,0,0,0.7)", backdropFilter:"blur(8px)", border:"1px solid rgba(105,201,208,0.35)" }}>
-                        <Radio size={11} style={{ color:"#69C9D0" }} />
-                        <span className="text-xs font-bold text-white">TikTok — ×STRIKER×</span>
+                      {/* Dark gradient overlay */}
+                      <div className="absolute inset-0"
+                        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.42) 55%, rgba(0,5,5,0.93) 100%)" }} />
+                      {/* Left teal/pink accent bar */}
+                      <div className="absolute inset-y-0 left-0 w-1"
+                        style={{ background: "linear-gradient(to bottom,#69C9D0,#EE1D52)" }} />
+                      {/* Top badge */}
+                      <div className="absolute top-3 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                        style={{ background: "rgba(0,0,0,0.72)", backdropFilter: "blur(10px)", border: "1px solid rgba(105,201,208,0.4)" }}>
+                        <Radio size={11} style={{ color: "#69C9D0" }} />
+                        <span className="text-xs font-bold text-white tracking-wide">TikTok — ×STRIKER×</span>
                       </div>
                       {/* External link */}
                       <a href={platform.url} target="_blank" rel="noopener noreferrer"
-                        className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all"
-                        style={{ background:"rgba(0,0,0,0.6)", backdropFilter:"blur(8px)" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background="#69C9D0")}
-                        onMouseLeave={(e) => (e.currentTarget.style.background="rgba(0,0,0,0.6)")}
+                        className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
+                        style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(8px)" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "#EE1D52")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.6)")}
                         aria-label="Visit TikTok profile">
                         <ExternalLink size={13} className="text-white" />
                       </a>
-                      {/* Handle + stats */}
-                      <div className="absolute bottom-3 left-4">
-                        <p className="text-sm font-semibold text-white">{platform.handle}</p>
-                        <div className="flex items-center gap-3 mt-0.5">
-                          <span className="text-xs" style={{ color:"rgba(105,201,208,0.7)" }}>156 followers</span>
-                          <span className="text-xs" style={{ color:"rgba(255,255,255,0.3)" }}>·</span>
-                          <span className="text-xs" style={{ color:"rgba(217,217,217,0.5)" }}>2.2K likes</span>
+                      {/* Bottom row */}
+                      <div className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-end justify-between">
+                        <div>
+                          <p className="text-white font-bold text-sm leading-none">{platform.handle}</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-xs font-semibold" style={{ color: "#69C9D0" }}>156</span>
+                            <span className="text-[10px]" style={{ color: "rgba(217,217,217,0.45)" }}>followers</span>
+                            <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+                            <span className="text-xs font-semibold" style={{ color: "#EE1D52" }}>2243</span>
+                            <span className="text-[10px]" style={{ color: "rgba(217,217,217,0.45)" }}>likes</span>
+                          </div>
+                        </div>
+                        {/* Live badge */}
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+                          style={{ background: "rgba(238,29,82,0.16)", border: "1px solid rgba(238,29,82,0.3)" }}>
+                          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#EE1D52" }} />
+                          <span className="text-[10px] font-bold" style={{ color: "#EE1D52" }}>LIVE</span>
                         </div>
                       </div>
                     </div>
