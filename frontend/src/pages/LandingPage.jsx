@@ -7,7 +7,7 @@ import {
   GraduationCap, MapPin, Mail, Phone, User,
   Search, Layout, Brush, RefreshCw,
   BookOpen, Award, Layers, ExternalLink, GitBranch,
-  CheckCircle, Calendar, Play,
+  CheckCircle, Calendar, Play, Film, Bot, Code,
 } from "lucide-react";
 
 import SectionHeader    from "../components/common/SectionHeader";
@@ -592,89 +592,226 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
 
-        {/* Tools — grouped rows, pill cards (icon + name) */}
-        <SectionHeader eyebrow="Toolbox" title="Tools I Use" subtitle="The software and platforms I rely on daily." />
+        {/* ══ MY TOOLS — Premium Bento Grid ═══════════════════ */}
         {(() => {
-          const CATEGORY_META = {
-            "Design":    { label: "DESIGN TOOLS",     color: "#a855f7" },
-            "Editing":   { label: "EDITING TOOLS",    color: "#f97316" },
-            "AI":        { label: "AI TOOLS",          color: "#22c55e" },
-            "Dev":       { label: "DEVELOPMENT",       color: "#3b82f6" },
-            "Streaming": { label: "STREAMING TOOLS",   color: "#EE1D52" },
+          const CAT = {
+            Design:    { label: "DESIGN TOOLS",   color: "#a855f7", glow: "rgba(168,85,247,0.22)",  dim: "rgba(168,85,247,0.06)",  Icon: Palette },
+            Editing:   { label: "EDITING TOOLS",  color: "#f97316", glow: "rgba(249,115,22,0.22)",  dim: "rgba(249,115,22,0.06)",  Icon: Film    },
+            AI:        { label: "AI TOOLS",        color: "#22c55e", glow: "rgba(34,197,94,0.22)",   dim: "rgba(34,197,94,0.06)",   Icon: Bot     },
+            Dev:       { label: "DEVELOPMENT",     color: "#3b82f6", glow: "rgba(59,130,246,0.22)",  dim: "rgba(59,130,246,0.06)",  Icon: Code    },
+            Streaming: { label: "STREAMING TOOLS", color: "#f43f5e", glow: "rgba(244,63,94,0.22)",   dim: "rgba(244,63,94,0.06)",   Icon: Radio   },
           };
 
-          // Preserve insertion order of categories
+          const BADGE = {
+            Advanced:     { bg: "rgba(168,85,247,0.18)",  text: "#d8b4fe", border: "rgba(168,85,247,0.35)" },
+            Intermediate: { bg: "rgba(249,115,22,0.15)",  text: "#fdba74", border: "rgba(249,115,22,0.35)" },
+            Beginner:     { bg: "rgba(34,197,94,0.13)",   text: "#86efac", border: "rgba(34,197,94,0.35)"  },
+          };
+
+          // Build ordered group list
           const seen = new Set();
           const groups = [];
-          TOOLS.forEach((t) => {
-            if (!seen.has(t.category)) { seen.add(t.category); groups.push(t.category); }
-          });
+          TOOLS.forEach((t) => { if (!seen.has(t.category)) { seen.add(t.category); groups.push(t.category); } });
+
+          // Bento cell component
+          const BentoCell = ({ cat, colSpan = 1 }) => {
+            const m     = CAT[cat] ?? CAT.Design;
+            const items = TOOLS.filter((t) => t.category === cat);
+            const CIcon = m.Icon;
+
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ boxShadow: `0 0 40px ${m.glow}, 0 0 80px ${m.glow}50` }}
+                className={colSpan === 2 ? "lg:col-span-2" : ""}
+                style={{
+                  background: `linear-gradient(135deg, ${m.dim} 0%, rgba(5,5,20,0.6) 100%)`,
+                  border: `1px solid ${m.color}35`,
+                  borderRadius: 20,
+                  padding: "1.5rem",
+                  backdropFilter: "blur(18px)",
+                  WebkitBackdropFilter: "blur(18px)",
+                  boxShadow: `0 0 0px ${m.glow}`,
+                  transition: "box-shadow 0.35s ease",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Ambient corner glow */}
+                <div style={{
+                  position: "absolute", top: -40, right: -40,
+                  width: 140, height: 140, borderRadius: "50%",
+                  background: `radial-gradient(circle, ${m.color}22 0%, transparent 70%)`,
+                  pointerEvents: "none",
+                }} />
+
+                {/* Header */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1.25rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                    <div style={{
+                      width: 32, height: 32, borderRadius: 10,
+                      background: `${m.color}1a`,
+                      border: `1px solid ${m.color}30`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      <CIcon size={15} style={{ color: m.color }} />
+                    </div>
+                    <span style={{
+                      fontSize: 11, fontWeight: 900,
+                      letterSpacing: "0.17em", textTransform: "uppercase",
+                      color: m.color,
+                    }}>
+                      {m.label}
+                    </span>
+                  </div>
+                  <div style={{
+                    width: 8, height: 8, borderRadius: "50%",
+                    background: m.color,
+                    boxShadow: `0 0 10px ${m.color}, 0 0 20px ${m.color}80`,
+                  }} />
+                </div>
+
+                {/* Tool cards grid */}
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: `repeat(${Math.min(items.length, colSpan === 2 ? 3 : 2)}, 1fr)`,
+                  gap: "0.75rem",
+                }}>
+                  {items.map((tool, ti) => {
+                    const TIcon = getToolIcon(tool.name);
+                    const level = tool.level ?? "Intermediate";
+                    const b     = BADGE[level] ?? BADGE.Intermediate;
+
+                    return (
+                      <motion.div
+                        key={tool.name}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: ti * 0.06 }}
+                        whileHover={{ y: -5, scale: 1.03 }}
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          borderRadius: 14,
+                          padding: "0.875rem",
+                          cursor: "default",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.625rem",
+                          transition: "border-color 0.25s, background 0.25s, box-shadow 0.25s",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = `${m.color}55`;
+                          e.currentTarget.style.background  = `${m.color}10`;
+                          e.currentTarget.style.boxShadow   = `0 8px 24px ${m.glow}40`;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                          e.currentTarget.style.background  = "rgba(255,255,255,0.04)";
+                          e.currentTarget.style.boxShadow   = "none";
+                        }}
+                      >
+                        {/* Icon */}
+                        <div style={{
+                          width: 46, height: 46, borderRadius: 12,
+                          background: "rgba(255,255,255,0.07)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          overflow: "hidden",
+                        }}>
+                          <TIcon size={46} />
+                        </div>
+                        {/* Name + badge */}
+                        <div>
+                          <p style={{ color: "#fff", fontSize: 13, fontWeight: 700, lineHeight: 1.2 }}>
+                            {tool.name}
+                          </p>
+                          <span style={{
+                            display: "inline-block", marginTop: 5,
+                            fontSize: 10, fontWeight: 600,
+                            padding: "2px 8px", borderRadius: 999,
+                            background: b.bg, color: b.text, border: `1px solid ${b.border}`,
+                          }}>
+                            {level}
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            );
+          };
 
           return (
-            <div className="space-y-10">
-              {groups.map((cat, gi) => {
-                const meta  = CATEGORY_META[cat] ?? { label: cat.toUpperCase(), color: "#7c3aed" };
-                const items = TOOLS.filter((t) => t.category === cat);
-                return (
-                  <AnimatedSection key={cat} delay={gi * 0.07}>
-                    {/* Category label */}
-                    <p
-                      className="text-xs font-black uppercase tracking-[0.2em] mb-4"
-                      style={{ color: meta.color }}
-                    >
-                      {meta.label}
-                    </p>
+            <div style={{ position: "relative" }}>
+              {/* Section heading */}
+              <AnimatedSection className="mb-10">
+                <h2 style={{
+                  fontSize: "clamp(2rem,5vw,3rem)",
+                  fontWeight: 900,
+                  letterSpacing: "-0.02em",
+                  background: "linear-gradient(135deg,#a855f7,#c084fc,#e879f9)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  marginBottom: "0.4rem",
+                }}>
+                  MY TOOLS
+                </h2>
+                <p style={{ color: "#64748b", fontSize: 14 }}>
+                  The tools I use to create, edit, design, develop and stream.
+                </p>
+              </AnimatedSection>
 
-                    {/* Pill cards row */}
-                    <div className="flex flex-wrap gap-3">
-                      {items.map((tool, ti) => {
-                        const Icon = getToolIcon(tool.name);
-                        return (
-                          <motion.div
-                            key={tool.name}
-                            initial={{ opacity: 0, x: -12 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: gi * 0.05 + ti * 0.05 }}
-                            whileHover={{ y: -3, scale: 1.03 }}
-                            className="flex items-center gap-3 px-4 py-3 rounded-xl cursor-default"
-                            style={{
-                              background: "rgba(255,255,255,0.05)",
-                              border: "1px solid rgba(255,255,255,0.08)",
-                              transition: "border-color 0.2s, box-shadow 0.2s, background 0.2s",
-                              minWidth: "8rem",
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.borderColor = `${meta.color}55`;
-                              e.currentTarget.style.boxShadow   = `0 0 16px ${meta.color}22`;
-                              e.currentTarget.style.background  = `${meta.color}10`;
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                              e.currentTarget.style.boxShadow   = "none";
-                              e.currentTarget.style.background  = "rgba(255,255,255,0.05)";
-                            }}
-                          >
-                            {/* Icon */}
-                            <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                              <Icon size={36} />
-                            </div>
-                            {/* Name */}
-                            <span className="text-white text-sm font-semibold whitespace-nowrap">
-                              {tool.name}
-                            </span>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
+              {/* Bento grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}
+                className="grid-cols-1 sm:grid-cols-2">
+
+                {/* Row 1: Design (wide) + Editing */}
+                <BentoCell cat="Design" colSpan={1} />
+                <BentoCell cat="Editing" colSpan={1} />
+
+                {/* Row 2: AI + Dev */}
+                <BentoCell cat="AI" colSpan={1} />
+                <BentoCell cat="Dev" colSpan={1} />
+
+                {/* Row 3: Streaming full width */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  style={{ gridColumn: "1 / -1" }}
+                >
+                  <BentoCell cat="Streaming" colSpan={2} />
+                </motion.div>
+              </div>
+
+              {/* Legend */}
+              <AnimatedSection delay={0.5}
+                style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem", marginTop: "2rem" }}>
+                {Object.entries(CAT).map(([cat, m]) => (
+                  <div key={cat} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <div style={{
+                      width: 8, height: 8, borderRadius: "50%",
+                      background: m.color,
+                      boxShadow: `0 0 6px ${m.color}`,
+                    }} />
+                    <span style={{ fontSize: 12, color: "#94a3b8" }}>{cat}</span>
+                  </div>
+                ))}
+              </AnimatedSection>
             </div>
           );
         })()}
 
         {/* Design Process */}
+
         <div className="mt-16">
           <SectionHeader eyebrow="Workflow" title="My Design Process" subtitle="A structured, user-centered approach to creating meaningful designs." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

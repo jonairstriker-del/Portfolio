@@ -94,22 +94,22 @@ export const SOFT_SKILLS = [
 // ─── Tools ────────────────────────────────────────────────────
 export const TOOLS = [
   // Design
-  { name: "Figma",           category: "Design"    },
-  { name: "Canva",           category: "Design"    },
-  { name: "Picsart",         category: "Design"    },
-  { name: "Pixellab",        category: "Design"    },
-  { name: "Adobe Photoshop", category: "Design"    },
+  { name: "Figma",           category: "Design",    level: "Advanced"     },
+  { name: "Canva",           category: "Design",    level: "Advanced"     },
+  { name: "Picsart",         category: "Design",    level: "Intermediate" },
+  { name: "Pixellab",        category: "Design",    level: "Intermediate" },
+  { name: "Adobe Photoshop", category: "Design",    level: "Intermediate" },
   // Editing
-  { name: "CapCut",          category: "Editing"   },
-  { name: "Adobe Premiere",  category: "Editing"   },
+  { name: "CapCut",          category: "Editing",   level: "Advanced"     },
+  { name: "Adobe Premiere",  category: "Editing",   level: "Intermediate" },
   // AI
-  { name: "ChatGPT",         category: "AI"        },
-  { name: "Stitch AI",       category: "AI"        },
+  { name: "ChatGPT",         category: "AI",        level: "Advanced"     },
+  { name: "Stitch AI",       category: "AI",        level: "Intermediate" },
   // Dev
-  { name: "VS Code",         category: "Dev"       },
+  { name: "VS Code",         category: "Dev",       level: "Intermediate" },
   // Streaming
-  { name: "OBS",             category: "Streaming" },
-  { name: "TikTok LIVE",     category: "Streaming" },
+  { name: "OBS",             category: "Streaming", level: "Advanced"     },
+  { name: "TikTok LIVE",     category: "Streaming", level: "Advanced"     },
 ];
 
 // ─── Experience ───────────────────────────────────────────────
