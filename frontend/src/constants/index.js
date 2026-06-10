@@ -93,12 +93,14 @@ export const SOFT_SKILLS = [
 
 // ─── Tools ────────────────────────────────────────────────────
 export const TOOLS = [
-  { name: "Figma",    icon: "Pen",   category: "Design"     },
-  { name: "Canva",    icon: "Image", category: "Design"     },
-  { name: "CapCut",   icon: "Video", category: "Editing"    },
-  { name: "ChatGPT",  icon: "Bot",   category: "AI"         },
-  { name: "VS Code",  icon: "Code",  category: "Dev"        },
-  { name: "OBS",      icon: "Radio", category: "Streaming"  },
+  { name: "Figma",     icon: "Pen",      category: "Design"    },
+  { name: "Canva",     icon: "Image",    category: "Design"    },
+  { name: "Picsart",   icon: "Picsart",  category: "Design"    },
+  { name: "Pixellab",  icon: "Pixellab", category: "Design"    },
+  { name: "CapCut",    icon: "Video",    category: "Editing"   },
+  { name: "ChatGPT",   icon: "Bot",      category: "AI"        },
+  { name: "VS Code",   icon: "Code",     category: "Dev"       },
+  { name: "OBS",       icon: "Radio",    category: "Streaming" },
 ];
 
 // ─── Experience ───────────────────────────────────────────────

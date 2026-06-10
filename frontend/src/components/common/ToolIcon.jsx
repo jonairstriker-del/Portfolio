@@ -115,6 +115,57 @@ export function ReactIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── Picsart ─────────────────────────────────────────────────── */
+export function PicsartIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Rounded square bg — Picsart signature coral-red */}
+      <rect width="24" height="24" rx="7" fill="url(#pa-bg)" />
+      <defs>
+        <linearGradient id="pa-bg" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stopColor="#FF3A6E" />
+          <stop offset="100%" stopColor="#FF6B35" />
+        </linearGradient>
+      </defs>
+      {/* Picsart "P" letterform — thick left stem + bowl */}
+      <path d="M7 5.5 L7 18.5" stroke="white" strokeWidth="2.6" strokeLinecap="round" />
+      {/* Bowl of the P */}
+      <path d="M7 5.5 Q14.5 5.5 14.5 9.5 Q14.5 13.5 7 13.5"
+        stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* Small accent dot */}
+      <circle cx="17.5" cy="17.5" r="1.8" fill="white" opacity="0.9" />
+    </svg>
+  );
+}
+
+/* ── Pixellab ────────────────────────────────────────────────── */
+export function PixellabIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Dark bg with indigo tint */}
+      <rect width="24" height="24" rx="7" fill="url(#pl-bg)" />
+      <defs>
+        <linearGradient id="pl-bg" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stopColor="#1a1035" />
+          <stop offset="100%" stopColor="#2d1b69" />
+        </linearGradient>
+      </defs>
+      {/* Pixel grid — 3×3 with gaps, top-left missing for "L" shape */}
+      {/* Row 1 */}
+      <rect x="4"    y="4"    width="4.5" height="4.5" rx="1" fill="#a78bfa" />
+      <rect x="9.75" y="4"    width="4.5" height="4.5" rx="1" fill="#7c3aed" />
+      {/* Row 2 */}
+      <rect x="4"    y="9.75" width="4.5" height="4.5" rx="1" fill="#7c3aed" />
+      <rect x="9.75" y="9.75" width="4.5" height="4.5" rx="1" fill="#c4b5fd" />
+      <rect x="15.5" y="9.75" width="4.5" height="4.5" rx="1" fill="#a78bfa" opacity="0.6" />
+      {/* Row 3 */}
+      <rect x="4"    y="15.5" width="4.5" height="4.5" rx="1" fill="#c4b5fd" />
+      <rect x="9.75" y="15.5" width="4.5" height="4.5" rx="1" fill="#a78bfa" />
+      <rect x="15.5" y="15.5" width="4.5" height="4.5" rx="1" fill="#7c3aed" />
+    </svg>
+  );
+}
+
 /* ── Default fallback ────────────────────────────────────────── */
 export function DefaultToolIcon({ size = 24, className = "" }) {
   return (
@@ -130,6 +181,8 @@ export function DefaultToolIcon({ size = 24, className = "" }) {
 const TOOL_ICON_MAP = {
   "Figma":    FigmaIcon,
   "Canva":    CanvaIcon,
+  "Picsart":  PicsartIcon,
+  "Pixellab": PixellabIcon,
   "CapCut":   CapCutIcon,
   "ChatGPT":  ChatGPTIcon,
   "VS Code":  VSCodeIcon,
