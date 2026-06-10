@@ -38,13 +38,18 @@ export function CanvaIcon({ size = 24, className = "" }) {
 export function CapCutIcon({ size = 24, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
-      <rect width="24" height="24" rx="6" fill="#000" />
-      {/* Scissors blade top */}
-      <path d="M5 7 L13 12 L5 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      {/* Scissors blade bottom — smaller */}
-      <path d="M19 9.5 L13 12 L19 14.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      {/* Center dot */}
-      <circle cx="13" cy="12" r="1.2" fill="white" />
+      {/* Black rounded square — matches real CapCut icon */}
+      <rect width="24" height="24" rx="5.5" fill="#000000" />
+      {/*
+        Real CapCut logo: two rounded rectangles overlapping (hourglass/bowtie)
+        with a diagonal slash cutting across the center.
+        Top-left rect
+      */}
+      <rect x="4.5" y="4.5" width="7.5" height="7.5" rx="2.2" fill="white" />
+      {/* Bottom-right rect */}
+      <rect x="12" y="12" width="7.5" height="7.5" rx="2.2" fill="white" />
+      {/* Diagonal slash — cutting top-right to bottom-left through center */}
+      <path d="M18 4.5 L6 19.5" stroke="#000000" strokeWidth="3.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -119,21 +124,22 @@ export function ReactIcon({ size = 24, className = "" }) {
 export function PicsartIcon({ size = 24, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
-      {/* Rounded square bg — Picsart signature coral-red */}
-      <rect width="24" height="24" rx="7" fill="url(#pa-bg)" />
       <defs>
         <linearGradient id="pa-bg" x1="0" y1="0" x2="24" y2="24">
-          <stop offset="0%" stopColor="#FF3A6E" />
-          <stop offset="100%" stopColor="#FF6B35" />
+          {/* Real Picsart gradient: hot pink → purple → cyan */}
+          <stop offset="0%"   stopColor="#FF00CC" />
+          <stop offset="50%"  stopColor="#7B2FFF" />
+          <stop offset="100%" stopColor="#00E5FF" />
         </linearGradient>
       </defs>
-      {/* Picsart "P" letterform — thick left stem + bowl */}
-      <path d="M7 5.5 L7 18.5" stroke="white" strokeWidth="2.6" strokeLinecap="round" />
-      {/* Bowl of the P */}
-      <path d="M7 5.5 Q14.5 5.5 14.5 9.5 Q14.5 13.5 7 13.5"
-        stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      {/* Small accent dot */}
-      <circle cx="17.5" cy="17.5" r="1.8" fill="white" opacity="0.9" />
+      {/* Rounded square — real Picsart shape */}
+      <rect width="24" height="24" rx="6" fill="url(#pa-bg)" />
+      {/* Real Picsart logo: lowercase "p" with open circle + descending stem */}
+      {/* The circle (open — stroke only, no fill) */}
+      <circle cx="13.2" cy="9.8" r="3.6" stroke="white" strokeWidth="2.5" fill="none" />
+      {/* Vertical stem — left side of the p, extends from top of circle down past bottom */}
+      <line x1="9.6" y1="6.2" x2="9.6" y2="18.8"
+        stroke="white" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -142,26 +148,20 @@ export function PicsartIcon({ size = 24, className = "" }) {
 export function PixellabIcon({ size = 24, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
-      {/* Dark bg with indigo tint */}
-      <rect width="24" height="24" rx="7" fill="url(#pl-bg)" />
-      <defs>
-        <linearGradient id="pl-bg" x1="0" y1="0" x2="24" y2="24">
-          <stop offset="0%" stopColor="#1a1035" />
-          <stop offset="100%" stopColor="#2d1b69" />
-        </linearGradient>
-      </defs>
-      {/* Pixel grid — 3×3 with gaps, top-left missing for "L" shape */}
-      {/* Row 1 */}
-      <rect x="4"    y="4"    width="4.5" height="4.5" rx="1" fill="#a78bfa" />
-      <rect x="9.75" y="4"    width="4.5" height="4.5" rx="1" fill="#7c3aed" />
-      {/* Row 2 */}
-      <rect x="4"    y="9.75" width="4.5" height="4.5" rx="1" fill="#7c3aed" />
-      <rect x="9.75" y="9.75" width="4.5" height="4.5" rx="1" fill="#c4b5fd" />
-      <rect x="15.5" y="9.75" width="4.5" height="4.5" rx="1" fill="#a78bfa" opacity="0.6" />
-      {/* Row 3 */}
-      <rect x="4"    y="15.5" width="4.5" height="4.5" rx="1" fill="#c4b5fd" />
-      <rect x="9.75" y="15.5" width="4.5" height="4.5" rx="1" fill="#a78bfa" />
-      <rect x="15.5" y="15.5" width="4.5" height="4.5" rx="1" fill="#7c3aed" />
+      {/* Real Pixellab icon: blue circle with double-stroke "P" and long shadow */}
+      <circle cx="12" cy="12" r="12" fill="#3AABDB" />
+      {/* Long diagonal shadow of the P (darker blue, offset down-right) */}
+      <path d="M10 7 L10 21 Q15 21 16.5 18 L10.5 12.5 Q16 12 16 9.5 Q16 7 10 7Z"
+        fill="rgba(0,60,100,0.25)" />
+      {/* Double-stroke P — left vertical bar */}
+      <line x1="8.5" y1="5.5" x2="8.5" y2="18.5"
+        stroke="white" strokeWidth="2" strokeLinecap="round" />
+      {/* Double-stroke P — second vertical bar (inner) */}
+      <line x1="11.5" y1="5.5" x2="11.5" y2="18.5"
+        stroke="white" strokeWidth="2" strokeLinecap="round" />
+      {/* P bowl — outer arc connecting both stems */}
+      <path d="M8.5 5.5 Q18.5 5.5 18.5 11 Q18.5 16.5 8.5 16.5"
+        stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" />
     </svg>
   );
 }
