@@ -204,6 +204,43 @@ export function TikTokIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── Stitch AI ───────────────────────────────────────────────── */
+export function StitchAIIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      <defs>
+        <linearGradient id="stitch-bg" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stopColor="#0A0A0A" />
+          <stop offset="100%" stopColor="#1a1a2e" />
+        </linearGradient>
+        <linearGradient id="stitch-thread" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stopColor="#7c3aed" />
+          <stop offset="100%" stopColor="#c084fc" />
+        </linearGradient>
+      </defs>
+      {/* Dark rounded square */}
+      <rect width="24" height="24" rx="6" fill="url(#stitch-bg)" />
+      {/* Stitch pattern — three curved thread lines representing AI stitching */}
+      {/* Top stitch line */}
+      <path d="M4 7 Q8 5 12 7 Q16 9 20 7"
+        stroke="url(#stitch-thread)" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+      {/* Middle stitch line */}
+      <path d="M4 12 Q8 10 12 12 Q16 14 20 12"
+        stroke="url(#stitch-thread)" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+      {/* Bottom stitch line */}
+      <path d="M4 17 Q8 15 12 17 Q16 19 20 17"
+        stroke="url(#stitch-thread)" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+      {/* Vertical connector dots — stitch holes */}
+      {[6, 10, 14, 18].map((x) => (
+        <circle key={x} cx={x} cy="12" r="1" fill="#c084fc" opacity="0.5" />
+      ))}
+      {/* "AI" label bottom-right */}
+      <text x="14.5" y="22" fontSize="5.5" fontWeight="900" fill="#c084fc"
+        fontFamily="'Arial Black', Arial, sans-serif" opacity="0.8">AI</text>
+    </svg>
+  );
+}
+
 /* ── Adobe Premiere Pro ──────────────────────────────────────── */
 export function AdobePremierIcon({ size = 24, className = "" }) {
   return (
@@ -273,6 +310,7 @@ const TOOL_ICON_MAP = {
   "CapCut":          CapCutIcon,
   "Adobe Premiere":  AdobePremierIcon,
   "ChatGPT":         ChatGPTIcon,
+  "Stitch AI":       StitchAIIcon,
   "VS Code":         VSCodeIcon,
   "TikTok LIVE":     TikTokIcon,
   "OBS":             OBSIcon,

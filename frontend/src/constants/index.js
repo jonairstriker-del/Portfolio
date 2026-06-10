@@ -93,17 +93,23 @@ export const SOFT_SKILLS = [
 
 // ─── Tools ────────────────────────────────────────────────────
 export const TOOLS = [
-  { name: "Figma",            icon: "Pen",      category: "Design"    },
-  { name: "Canva",            icon: "Image",    category: "Design"    },
-  { name: "Picsart",          icon: "Picsart",  category: "Design"    },
-  { name: "Pixellab",         icon: "Pixellab", category: "Design"    },
-  { name: "Adobe Photoshop",  icon: "Ps",       category: "Design"    },
-  { name: "CapCut",           icon: "Video",    category: "Editing"   },
-  { name: "Adobe Premiere",   icon: "Pr",       category: "Editing"   },
-  { name: "ChatGPT",          icon: "Bot",      category: "AI"        },
-  { name: "VS Code",          icon: "Code",     category: "Dev"       },
-  { name: "OBS",              icon: "Radio",    category: "Streaming" },
-  { name: "TikTok LIVE",     icon: "TikTok",   category: "Streaming" },
+  // Design
+  { name: "Figma",           category: "Design"    },
+  { name: "Canva",           category: "Design"    },
+  { name: "Picsart",         category: "Design"    },
+  { name: "Pixellab",        category: "Design"    },
+  { name: "Adobe Photoshop", category: "Design"    },
+  // Editing
+  { name: "CapCut",          category: "Editing"   },
+  { name: "Adobe Premiere",  category: "Editing"   },
+  // AI
+  { name: "ChatGPT",         category: "AI"        },
+  { name: "Stitch AI",       category: "AI"        },
+  // Dev
+  { name: "VS Code",         category: "Dev"       },
+  // Streaming
+  { name: "OBS",             category: "Streaming" },
+  { name: "TikTok LIVE",     category: "Streaming" },
 ];
 
 // ─── Experience ───────────────────────────────────────────────
