@@ -749,8 +749,8 @@ export default function LandingPage() {
 
           return (
             <div style={{ position: "relative" }}>
-              {/* Section heading */}
-              <AnimatedSection className="mb-10">
+              {/* Section heading — centered */}
+              <AnimatedSection className="mb-10 text-center">
                 <h2 style={{
                   fontSize: "clamp(2rem,5vw,3rem)",
                   fontWeight: 900,

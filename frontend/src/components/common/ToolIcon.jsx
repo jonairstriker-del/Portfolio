@@ -204,6 +204,28 @@ export function TikTokIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── Kiro (AI IDE — purple ghost) ────────────────────────────── */
+export function KiroIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Purple rounded square background — matches real Kiro brand */}
+      <rect width="24" height="24" rx="6" fill="#7C3AED" />
+      {/* White ghost shape — simplified Kiro mascot */}
+      {/* Head/body oval */}
+      <ellipse cx="12" cy="10.5" rx="5" ry="5.5" fill="white" />
+      {/* Body lower — rectangle into scalloped bottom */}
+      <rect x="7" y="10.5" width="10" height="7" fill="white" />
+      {/* Scalloped bottom — three bumps (ghost feet) */}
+      <circle cx="8.5"  cy="17.5" r="1.5" fill="#7C3AED" />
+      <circle cx="12"   cy="17.5" r="1.5" fill="#7C3AED" />
+      <circle cx="15.5" cy="17.5" r="1.5" fill="#7C3AED" />
+      {/* Eyes */}
+      <circle cx="10.2" cy="10.2" r="1.1" fill="#1a0a2e" />
+      <circle cx="13.8" cy="10.2" r="1.1" fill="#1a0a2e" />
+    </svg>
+  );
+}
+
 /* ── Stitch AI ───────────────────────────────────────────────── */
 export function StitchAIIcon({ size = 24, className = "" }) {
   return (
@@ -311,6 +333,7 @@ const TOOL_ICON_MAP = {
   "Adobe Premiere":  AdobePremierIcon,
   "ChatGPT":         ChatGPTIcon,
   "Stitch AI":       StitchAIIcon,
+  "Kiro":            KiroIcon,
   "VS Code":         VSCodeIcon,
   "TikTok LIVE":     TikTokIcon,
   "OBS":             OBSIcon,

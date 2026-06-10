@@ -105,6 +105,7 @@ export const TOOLS = [
   // AI
   { name: "ChatGPT",         category: "AI",        level: "Advanced"     },
   { name: "Stitch AI",       category: "AI",        level: "Intermediate" },
+  { name: "Kiro",            category: "AI",        level: "Advanced"     },
   // Dev
   { name: "VS Code",         category: "Dev",       level: "Intermediate" },
   // Streaming
