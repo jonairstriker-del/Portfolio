@@ -166,6 +166,54 @@ export function PixellabIcon({ size = 24, className = "" }) {
   );
 }
 
+/* ── Adobe Premiere Pro ──────────────────────────────────────── */
+export function AdobePremierIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Deep purple background — Premiere's exact brand color */}
+      <rect width="24" height="24" rx="5" fill="#00005B" />
+      <rect width="24" height="24" rx="5" fill="url(#pr-bg)" opacity="0.6" />
+      <defs>
+        <linearGradient id="pr-bg" x1="0" y1="0" x2="0" y2="24">
+          <stop offset="0%" stopColor="#9999FF" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#00005B" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {/* "Pr" text — Adobe's actual Premiere abbreviation */}
+      <text
+        x="4" y="17"
+        fontSize="13" fontWeight="900" fill="#9999FF"
+        fontFamily="'Arial Black', Arial, sans-serif"
+        letterSpacing="-0.5"
+      >Pr</text>
+    </svg>
+  );
+}
+
+/* ── Adobe Photoshop ─────────────────────────────────────────── */
+export function AdobePhotoshopIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      {/* Deep blue background — Photoshop's exact brand color */}
+      <rect width="24" height="24" rx="5" fill="#001E36" />
+      <rect width="24" height="24" rx="5" fill="url(#ps-bg)" opacity="0.6" />
+      <defs>
+        <linearGradient id="ps-bg" x1="0" y1="0" x2="0" y2="24">
+          <stop offset="0%" stopColor="#31A8FF" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#001E36" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {/* "Ps" text — Adobe's actual Photoshop abbreviation */}
+      <text
+        x="3.5" y="17"
+        fontSize="13" fontWeight="900" fill="#31A8FF"
+        fontFamily="'Arial Black', Arial, sans-serif"
+        letterSpacing="-0.5"
+      >Ps</text>
+    </svg>
+  );
+}
+
 /* ── Default fallback ────────────────────────────────────────── */
 export function DefaultToolIcon({ size = 24, className = "" }) {
   return (
@@ -179,15 +227,17 @@ export function DefaultToolIcon({ size = 24, className = "" }) {
 
 /* ── Map: tool name → component ─────────────────────────────── */
 const TOOL_ICON_MAP = {
-  "Figma":    FigmaIcon,
-  "Canva":    CanvaIcon,
-  "Picsart":  PicsartIcon,
-  "Pixellab": PixellabIcon,
-  "CapCut":   CapCutIcon,
-  "ChatGPT":  ChatGPTIcon,
-  "VS Code":  VSCodeIcon,
-  "OBS":      OBSIcon,
-  "React":    ReactIcon,
+  "Figma":           FigmaIcon,
+  "Canva":           CanvaIcon,
+  "Picsart":         PicsartIcon,
+  "Pixellab":        PixellabIcon,
+  "Adobe Photoshop": AdobePhotoshopIcon,
+  "CapCut":          CapCutIcon,
+  "Adobe Premiere":  AdobePremierIcon,
+  "ChatGPT":         ChatGPTIcon,
+  "VS Code":         VSCodeIcon,
+  "OBS":             OBSIcon,
+  "React":           ReactIcon,
 };
 
 export function getToolIcon(toolName) {
