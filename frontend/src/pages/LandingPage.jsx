@@ -592,51 +592,87 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
 
-        {/* Tools — flat grid, two rows of 6 */}
+        {/* Tools — grouped rows, pill cards (icon + name) */}
         <SectionHeader eyebrow="Toolbox" title="Tools I Use" subtitle="The software and platforms I rely on daily." />
-        <AnimatedSection delay={0.1}>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-            {TOOLS.map((tool, i) => {
-              const Icon = getToolIcon(tool.name);
-              return (
-                <motion.div
-                  key={tool.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.04 }}
-                  whileHover={{ y: -4 }}
-                  className="flex flex-col items-center gap-3 p-5 rounded-2xl cursor-default group"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    transition: "border-color 0.25s, box-shadow 0.25s, background 0.25s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(124,58,237,0.45)";
-                    e.currentTarget.style.boxShadow   = "0 0 20px rgba(124,58,237,0.18)";
-                    e.currentTarget.style.background  = "rgba(124,58,237,0.07)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
-                    e.currentTarget.style.boxShadow   = "none";
-                    e.currentTarget.style.background  = "rgba(255,255,255,0.04)";
-                  }}
-                >
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                    <Icon size={56} />
-                  </div>
-                  {/* Label */}
-                  <div className="text-center">
-                    <p className="text-white text-xs font-semibold leading-snug">{tool.name}</p>
-                    <p className="text-muted text-[10px] mt-0.5">{tool.category}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </AnimatedSection>
+        {(() => {
+          const CATEGORY_META = {
+            "Design":    { label: "DESIGN TOOLS",     color: "#a855f7" },
+            "Editing":   { label: "EDITING TOOLS",    color: "#f97316" },
+            "AI":        { label: "AI TOOLS",          color: "#22c55e" },
+            "Dev":       { label: "DEVELOPMENT",       color: "#3b82f6" },
+            "Streaming": { label: "STREAMING TOOLS",   color: "#EE1D52" },
+          };
+
+          // Preserve insertion order of categories
+          const seen = new Set();
+          const groups = [];
+          TOOLS.forEach((t) => {
+            if (!seen.has(t.category)) { seen.add(t.category); groups.push(t.category); }
+          });
+
+          return (
+            <div className="space-y-10">
+              {groups.map((cat, gi) => {
+                const meta  = CATEGORY_META[cat] ?? { label: cat.toUpperCase(), color: "#7c3aed" };
+                const items = TOOLS.filter((t) => t.category === cat);
+                return (
+                  <AnimatedSection key={cat} delay={gi * 0.07}>
+                    {/* Category label */}
+                    <p
+                      className="text-xs font-black uppercase tracking-[0.2em] mb-4"
+                      style={{ color: meta.color }}
+                    >
+                      {meta.label}
+                    </p>
+
+                    {/* Pill cards row */}
+                    <div className="flex flex-wrap gap-3">
+                      {items.map((tool, ti) => {
+                        const Icon = getToolIcon(tool.name);
+                        return (
+                          <motion.div
+                            key={tool.name}
+                            initial={{ opacity: 0, x: -12 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: gi * 0.05 + ti * 0.05 }}
+                            whileHover={{ y: -3, scale: 1.03 }}
+                            className="flex items-center gap-3 px-4 py-3 rounded-xl cursor-default"
+                            style={{
+                              background: "rgba(255,255,255,0.05)",
+                              border: "1px solid rgba(255,255,255,0.08)",
+                              transition: "border-color 0.2s, box-shadow 0.2s, background 0.2s",
+                              minWidth: "8rem",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.borderColor = `${meta.color}55`;
+                              e.currentTarget.style.boxShadow   = `0 0 16px ${meta.color}22`;
+                              e.currentTarget.style.background  = `${meta.color}10`;
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                              e.currentTarget.style.boxShadow   = "none";
+                              e.currentTarget.style.background  = "rgba(255,255,255,0.05)";
+                            }}
+                          >
+                            {/* Icon */}
+                            <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                              <Icon size={36} />
+                            </div>
+                            {/* Name */}
+                            <span className="text-white text-sm font-semibold whitespace-nowrap">
+                              {tool.name}
+                            </span>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          );
+        })()}
 
         {/* Design Process */}
         <div className="mt-16">
